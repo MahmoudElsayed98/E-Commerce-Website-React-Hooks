@@ -1,0 +1,8 @@
+footer {
+  background-color: var(--secondaryColor);
+  font-weight: 500;
+  height: 57px;
+}
+footer span {
+  font-family: "Roboto", sans-serif;
+}

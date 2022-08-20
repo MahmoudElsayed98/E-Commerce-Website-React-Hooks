@@ -1,0 +1,139 @@
+.checkout {
+  min-height: calc(100vh - (32px + 81.47px + 57px));
+  color: var(--mainColor);
+}
+.checkout::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("/src/assets/images/istockphoto-1096460950-612x612.jpg");
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.03;
+}
+.checkout .btn-primary {
+  background-color: var(--mainColor);
+  width: 25%;
+}
+.checkout .btn-primary:hover {
+  background-color: var(--hoverColor);
+  border-color: var(--hoverColor);
+}
+.checkout .btn-primary:focus {
+  box-shadow: none;
+}
+.checkout .container h1 {
+  font-size: 50px;
+}
+@media (max-width: 1199px) {
+  .checkout .container h1 {
+    font-size: 45px;
+  }
+}
+@media (max-width: 991px) {
+  .checkout .container h1 {
+    font-size: 40px;
+  }
+  .checkout .btn-primary {
+    width: 30%;
+  }
+}
+@media (max-width: 767px) {
+  .checkout .container h1 {
+    font-size: 35px;
+  }
+  .checkout .btn-primary {
+    background-color: var(--mainColor);
+    width: 50%;
+  }
+}
+.checkout form select {
+  border: 1px solid #ced4da;
+  width: fit-content;
+}
+.checkout form input,
+.checkout form select,
+.checkout form .react-tel-input .flag-dropdown {
+  transition: var(--mainDuration);
+}
+.checkout form select,
+.checkout form input {
+  color: var(--mainColor);
+}
+.checkout form select:focus-visible {
+  outline: none;
+}
+.checkout form select option {
+  width: fit-content;
+}
+.checkout form input::placeholder,
+.checkout form select,
+.checkout .react-tel-input input {
+  color: var(--secondaryColor);
+}
+.checkout form input:hover,
+.checkout form input:focus,
+.checkout form select:hover,
+.checkout form select:focus,
+.checkout form .react-tel-input:hover .flag-dropdown,
+.checkout form .react-tel-input input:focus + .flag-dropdown {
+  border-color: var(--secondaryColor);
+}
+.checkout form input,
+.checkout form select,
+.checkout .react-tel-input {
+  width: 62.5%;
+}
+.checkout form input:focus {
+  box-shadow: none;
+  color: var(--mainColor);
+}
+.checkout form label {
+  width: 37.5%;
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .checkout form input,
+  .checkout form select,
+  .checkout .react-tel-input {
+    width: 50%;
+  }
+  .checkout form label {
+    width: 25%;
+    text-align: center;
+  }
+}
+@media (max-width: 767px) {
+  .checkout form input,
+  .checkout form select,
+  .checkout .react-tel-input {
+    width: 100%;
+  }
+  .checkout form label {
+    width: auto;
+    text-align: center;
+  }
+}
+.checkout .react-tel-input input {
+  width: 100%;
+}
+/* input type date pick item */
+.checkout form input[type="date"]::-webkit-datetime-edit-text {
+  color: var(--secondaryColor);
+  padding: 0 0.3em;
+}
+.checkout form input[type="date"]::-webkit-datetime-edit-month-field {
+  color: var(--secondaryColor);
+}
+.checkout form input[type="date"]::-webkit-datetime-edit-day-field {
+  color: var(--secondaryColor);
+}
+.checkout form input[type="date"]::-webkit-datetime-edit-year-field {
+  color: var(--secondaryColor);
+}
+.checkout form input[type="date"]::-webkit-calendar-picker-indicator {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23bbbbbb" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
+}
+/* input type date pick item */

@@ -1,0 +1,90 @@
+.contact {
+  min-height: calc(100vh - (32px + 81.47px + 57px));
+  position: relative;
+  color: var(--mainColor);
+}
+.contact::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("/src/assets/images/istockphoto-1096460950-612x612.jpg");
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.03;
+}
+.contact form {
+  width: 55%;
+}
+.contact form input,
+.contact form input:focus,
+.contact form textarea,
+.contact form textarea:focus {
+  color: var(--mainColor);
+  box-shadow: none;
+}
+.contact form input,
+.contact form textarea {
+  transition: var(--mainDuration);
+}
+.contact form input:hover,
+.contact form textarea:hover {
+  border-color: var(--secondaryColor);
+}
+.contact form input::placeholder,
+.contact form textarea::placeholder {
+  color: var(--secondaryColor);
+}
+.contact .container h1 {
+  font-size: 50px;
+}
+@media (max-width: 1199px) {
+  .contact form {
+    width: 65%;
+  }
+  .contact .container h1 {
+    font-size: 45px;
+  }
+}
+@media (max-width: 991px) {
+  .contact form {
+    width: 85%;
+  }
+  .contact .container h1 {
+    font-size: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .contact form {
+    width: 100%;
+  }
+  .contact form label {
+    margin-bottom: 5px !important;
+  }
+  .contact form button {
+    width: 100%;
+  }
+  .contact .container h1 {
+    font-size: 35px;
+  }
+}
+@media (min-width: 768px) {
+  .contact form input,
+  .contact form textarea,
+  .contact form button {
+    width: 75%;
+  }
+  .contact form label {
+    width: 25%;
+  }
+}
+.contact form textarea {
+  resize: none;
+}
+.contact form input,
+.contact form input:focus,
+.contact form textarea:focus,
+.contact form textarea {
+  background-color: transparent;
+}

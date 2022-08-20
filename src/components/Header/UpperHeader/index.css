@@ -1,0 +1,27 @@
+.links {
+  max-height: 32px;
+}
+.links a,
+.links span,
+.links .delivery {
+  font-size: 16px;
+  color: var(--secondaryColor);
+  transition: var(--mainDuration);
+}
+.links a:hover,
+.links .delivery:hover,
+.links span:hover {
+  color: var(--mainColor);
+}
+
+.delivery svg {
+  font-size: 20px;
+}
+.dropdown .dropdown-menu {
+  min-width: auto;
+  padding: 0;
+}
+.dropdown.lang button#dropdown-basic {
+  padding: 0;
+  border: none;
+}

@@ -1,0 +1,101 @@
+.register {
+  min-height: calc(100vh - (32px + 81.47px + 57px));
+  position: relative;
+  color: var(--mainColor);
+}
+.register::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("/src/assets/images/istockphoto-1096460950-612x612.jpg");
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.03;
+}
+.register .register-form {
+  width: 45%;
+  border: var(--mainBorder);
+}
+.register .register-form,
+.register .register-form input {
+  transition: var(--mainDuration);
+}
+.register .register-form:hover {
+  border-color: var(--mainColor);
+}
+.register .register-form form {
+  width: 85%;
+}
+.register form input:focus {
+  box-shadow: none;
+}
+.register form input:focus,
+.register form input:hover {
+  border-color: var(--mainColor);
+}
+.register form .input,
+.register form input:focus {
+  color: var(--mainColor);
+}
+
+.register form hr + span {
+  transform: translate(-50%, -50%);
+  width: 32.5px;
+  height: 32.5px;
+  background-color: var(--mainColor);
+  color: var(--thirdColor);
+}
+.register form input::placeholder {
+  color: var(--secondaryColor);
+}
+.register .container h1 {
+  font-size: 50px;
+}
+@media (max-width: 1199px) {
+  .register .register-form {
+    width: 52.5%;
+  }
+  .register .container h1 {
+    font-size: 45px;
+  }
+}
+@media (max-width: 991px) {
+  .register {
+    min-height: calc(100vh - (32px + 81.47px + 57px));
+  }
+  .register .register-form {
+    width: 70%;
+  }
+  .register .container h1 {
+    font-size: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .register .register-form {
+    width: 100%;
+  }
+  .register form label {
+    margin-bottom: 5px !important;
+  }
+  .register .container h1 {
+    font-size: 35px;
+  }
+}
+.register form .btn-primary:focus {
+  box-shadow: none;
+}
+.register form .input,
+.register form .input:focus {
+  background-color: transparent;
+}
+.register .form-text {
+  color: var(--mainColor);
+}
+.register .form-text a {
+  font-size: 15.5px;
+}
+.register form .socials {
+  margin-top: 35px;
+}

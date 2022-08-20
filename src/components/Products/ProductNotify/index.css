@@ -1,0 +1,7 @@
+.product-added .image {
+  width: 15%;
+  background-color: var(--thirdColor);
+}
+.product-added .info {
+  width: 80%;
+}

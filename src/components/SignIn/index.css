@@ -1,0 +1,100 @@
+.login {
+  min-height: calc(100vh - (32px + 81.47px + 57px));
+  position: relative;
+  color: var(--mainColor);
+}
+.login::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("/src/assets/images/istockphoto-1096460950-612x612.jpg");
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.03;
+}
+.login .login-form {
+  width: 45%;
+  border: var(--mainBorder);
+}
+.login form .input,
+.login .login-form {
+  transition: var(--mainDuration);
+}
+.login .login-form:hover {
+  border-color: var(--mainColor);
+}
+.login .login-form form {
+  width: 85%;
+}
+.login form input:focus {
+  box-shadow: none;
+}
+.login form input:focus,
+.login form input:hover {
+  border-color: var(--mainColor);
+}
+.login form .input,
+.login form input:focus {
+  color: var(--mainColor);
+}
+.login form .btn-primary:focus {
+  box-shadow: none;
+}
+.login form hr + span {
+  transform: translate(-50%, -50%);
+  width: 32.5px;
+  height: 32.5px;
+  background-color: var(--mainColor);
+  color: var(--thirdColor);
+}
+.login form input::placeholder {
+  color: var(--secondaryColor);
+}
+.login .container h1 {
+  font-size: 50px;
+}
+@media (max-width: 1199px) {
+  .login .login-form {
+    width: 52.5%;
+  }
+  .login .container h1 {
+    font-size: 45px;
+  }
+}
+@media (max-width: 991px) {
+  .login {
+    min-height: calc(100vh - (32px + 81.47px + 57px));
+  }
+  .login .login-form {
+    width: 70%;
+  }
+  .login .container h1 {
+    font-size: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .login .login-form {
+    width: 100%;
+  }
+  .login form label {
+    margin-bottom: 5px !important;
+  }
+  .login .container h1 {
+    font-size: 35px;
+  }
+}
+.login form .input,
+.login form .input:focus {
+  background-color: transparent;
+}
+.login .form-text {
+  color: var(--mainColor);
+}
+.login .form-text a {
+  font-size: 15.5px;
+}
+.login form .socials {
+  margin-top: 35px;
+}

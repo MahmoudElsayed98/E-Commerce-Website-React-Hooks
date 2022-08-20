@@ -1,0 +1,54 @@
+.card-skeleton {
+  width: calc((100% - 60px) / 4);
+  height: 544.22px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+
+.card-skeleton .image {
+  height: 360px;
+}
+.card-skeleton .text {
+  border-top: var(--mainBorder);
+}
+.card-skeleton .text .heading {
+  height: 101.94px;
+}
+.card-skeleton .text p {
+  height: 27px;
+}
+.card-skeleton > span {
+  display: block;
+  height: 38.21px;
+}
+.card-skeleton > span .react-loading-skeleton {
+  display: block;
+  height: 100%;
+}
+@media (max-width: 1199px) {
+  .card-skeleton {
+    width: calc((100% - 45px) / 3);
+    height: 544px;
+  }
+  .card-skeleton .text .heading {
+    height: 102px;
+  }
+  .card-skeleton > span {
+    height: 38px;
+  }
+}
+@media (max-width: 991px) {
+  .card-skeleton {
+    width: calc((100% - 30px) / 2);
+    height: 518.5px;
+  }
+  .card-skeleton .text .heading {
+    height: 76.5px;
+  }
+}
+@media (max-width: 767px) {
+  .card-skeleton {
+    width: 92.5%;
+    margin-right: 0;
+  }
+}
