@@ -54,6 +54,9 @@ function App() {
   useEffect(() => {
     calculateCartProductsTotalPrice();
   });
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
   const calculateCartProductsTotalPrice = () => {
     let cartProductsClone = cartProducts;
     let totalSalary = cartProductsClone.reduce((acc, cur) => {
@@ -429,6 +432,7 @@ function App() {
                                         removeProductFromComparison={
                                           removeProductFromComparison
                                         }
+                                        addToCart={addToCart}
                                       />
                                     }
                                   />

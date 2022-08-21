@@ -14,3 +14,34 @@
   z-index: -1;
   opacity: 0.03;
 }
+
+/* Table Styling */
+table {
+  width: 100%;
+}
+table .compare-image .image {
+  width: 60px;
+}
+table td,
+table th {
+  padding: 15px;
+  border: none;
+}
+table tbody tr:first-of-type,
+table tbody tr:nth-of-type(3),
+table tbody tr:nth-of-type(5),
+table tfoot td {
+  background-color: #eee;
+}
+table tbody tr:last-of-type,
+table tbody tr:nth-of-type(4),
+table tbody tr:nth-of-type(2) {
+  background-color: #e5e5e5;
+}
+table thead td,
+table thead th {
+  background-color: var(--mainColor);
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}

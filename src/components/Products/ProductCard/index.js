@@ -70,33 +70,6 @@ function ProductCard({ product, addToCart, addToWishlist, addToComparison }) {
           }`}
         />
       )}
-      {!localStorage.getItem(`wishlistProduct${product.id}`) ? (
-        <AiOutlineHeart
-          className="position-absolute heart"
-          role="button"
-          onClick={() => {
-            addToWishlist(product);
-          }}
-          title={`${
-            lang !== "Eng"
-              ? "إضافة المنتج إلى المفضلة"
-              : "Add Product To Wishlist"
-          }`}
-        />
-      ) : (
-        <AiFillHeart
-          className="position-absolute fill-heart"
-          role="button"
-          onClick={() => {
-            removeProductFromWishlist(product);
-          }}
-          title={`${
-            lang !== "Eng"
-              ? "حذف المنتج من المفضلة"
-              : "Remove Product From Wishlist"
-          }`}
-        />
-      )}
 
       {/* {wishlistProducts.length === 0
                       ?
