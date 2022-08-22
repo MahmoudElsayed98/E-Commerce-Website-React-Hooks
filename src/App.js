@@ -96,7 +96,7 @@ function App() {
       <ProductNotify product={productClone} target="compare" goal="add" />,
       {
         position: `${lang === "Eng" ? "top-right" : "top-left"}`,
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -119,7 +119,7 @@ function App() {
       <ProductNotify product={productClone} target="wishlist" goal="add" />,
       {
         position: `${lang === "Eng" ? "top-right" : "top-left"}`,
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -140,7 +140,7 @@ function App() {
         p.price = p.qty * product.price;
         toast.success(<ProductNotify product={p} target="cart" goal="add" />, {
           position: `${lang === "Eng" ? "top-right" : "top-left"}`,
-          autoClose: 3000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -162,7 +162,7 @@ function App() {
         <ProductNotify product={productClone} target="cart" goal="add" />,
         {
           position: `${lang === "Eng" ? "top-right" : "top-left"}`,
-          autoClose: 3000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -186,7 +186,7 @@ function App() {
       <ProductNotify product={product} target="cart" goal={"remove"} />,
       {
         position: `${lang === "Eng" ? "top-right" : "top-left"}`,
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -210,7 +210,7 @@ function App() {
       <ProductNotify product={product} target="compare" goal={"remove"} />,
       {
         position: `${lang === "Eng" ? "top-right" : "top-left"}`,
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -234,7 +234,7 @@ function App() {
       <ProductNotify product={product} target="wishlist" goal={"remove"} />,
       {
         position: `${lang === "Eng" ? "top-right" : "top-left"}`,
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -287,7 +287,7 @@ function App() {
                               >
                                 <ToastContainer
                                   position="top-right"
-                                  autoClose={3000}
+                                  autoClose={2000}
                                   hideProgressBar={false}
                                   newestOnTop={false}
                                   closeOnClick

@@ -4,7 +4,8 @@ body {
 :root {
   --mainColor: #0b47a9;
   --secondaryColor: #2196f3;
-  --hoverColor: #0b4ebb;
+  /* --hoverColor: #0b4ebb; */
+  --hoverColor: #1057c9;
   --thirdColor: #fff;
   --mainBorder: 1px solid #dee2e6;
   --mainDuration: 0.5s;

@@ -68,12 +68,14 @@
   color: var(--mainColor);
 }
 .navbar-collapse .navbar-nav form .btn-outline-dark {
+  transition: var(--mainDuration);
   background-color: var(--mainColor);
   border-color: var(--mainColor);
   color: var(--thirdColor);
 }
 .navbar-collapse .navbar-nav form .btn-outline-dark:hover {
   background-color: var(--hoverColor);
+  border-color: var(--hoverColor);
 }
 @media (max-width: 991px) {
   .navbar {
