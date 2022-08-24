@@ -5,11 +5,17 @@ import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { GoPrimitiveDot } from "react-icons/go";
 import Loading from "../Loading";
 import axios from "axios";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { BiGitCompare } from "react-icons/bi";
 import { LanguageContext } from "../../../App";
 function ProductDetails({
   productQuantity,
   resetProductQuantity,
   addToCart,
+  addToComparison,
+  addToWishlist,
+  removeProductFromWishlist,
+  removeProductFromComparison,
   increaseProductQuantity,
   decreaseProductQuantity,
 }) {
@@ -40,7 +46,7 @@ function ProductDetails({
   }, [id]);
   return (
     <div className="product-details py-4 py-lg-0 d-flex d-lg-block align-items-center">
-      <div className="container">
+      <div className="container position-relative">
         <div className="row justify-content-center align-items-center py-lg-4">
           {!productsDetailsLoading ? (
             <Loading />
@@ -53,6 +59,9 @@ function ProductDetails({
             </h3>
           ) : (
             <>
+              <p className="position-absolute cat text-uppercase rounded text-light p-2">
+                {product.category}
+              </p>
               <div className="left-side col-6 col-md-5 col-lg-4 me-lg-4">
                 <div className="image text-center">
                   <img src={product.image} alt={product.title} />
@@ -68,36 +77,77 @@ function ProductDetails({
                 </h4>
                 <div className="add-to-cart d-flex justify-content-center justify-content-lg-start align-items-center my-2">
                   <div
-                    className={`product-quantity d-flex align-items-center rounded ${
+                    className={`product-quantity d-flex ${
                       lang === "Eng" ? "me-2" : "ms-2"
                     }`}
                   >
-                    <span
-                      className={`d-flex justify-content-center align-items-center w-50 h-100 ${
-                        lang === "Eng" ? "border-end" : "border-start"
-                      }`}
-                    >
+                    <IoIosArrowUp
+                      role="button"
+                      onClick={increaseProductQuantity}
+                      className="d-block h-100 rounded-start"
+                    />
+                    <span className="d-flex justify-content-center align-items-center w-100 h-100 fs-5">
                       {productQuantity}
                     </span>
-                    <span className="up-down w-50 h-100 d-flex flex-column justify-content-center align-items-center pe-1">
-                      <IoIosArrowUp
-                        role="button"
-                        onClick={increaseProductQuantity}
-                        className="h-100 border-bottom"
-                      />
-                      <IoIosArrowDown
-                        role="button"
-                        className="h-100"
-                        onClick={decreaseProductQuantity}
-                      />
-                    </span>
+                    <IoIosArrowDown
+                      role="button"
+                      onClick={decreaseProductQuantity}
+                      className="d-block h-100 rounded-end"
+                    />
+                    {/* <span className="up-down w-50 h-100 d-flex flex-column justify-content-center align-items-center pe-1"> */}
+                    {/* </span> */}
                   </div>
                   <button
-                    className="btn btn-primary text-uppercase"
+                    className="btn btn-primary btn-main text-uppercase mx-2"
                     onClick={() => addToCart(product)}
                   >
                     {lang === "Eng" ? "Add To Cart" : "إضافة الى السلة"}
                   </button>
+                  {!localStorage.getItem(`wishlistProduct${product.id}`) ? (
+                    <AiOutlineHeart
+                      className="heart svg mx-1"
+                      role="button"
+                      onClick={() => {
+                        addToWishlist(product);
+                      }}
+                      title={`${
+                        lang !== "Eng"
+                          ? "إضافة المنتج إلى المفضلة"
+                          : "Add Product To Wishlist"
+                      }`}
+                    />
+                  ) : (
+                    <AiFillHeart
+                      className="fill-heart svg mx-1"
+                      role="button"
+                      onClick={() => {
+                        removeProductFromWishlist(product);
+                      }}
+                      title={`${
+                        lang !== "Eng"
+                          ? "حذف المنتج من المفضلة"
+                          : "Remove Product From Wishlist"
+                      }`}
+                    />
+                  )}
+                  <BiGitCompare
+                    className="comparison svg"
+                    role="button"
+                    onClick={() => {
+                      !localStorage.getItem(`compareProduct${product.id}`)
+                        ? addToComparison(product)
+                        : removeProductFromComparison(product);
+                    }}
+                    title={`${
+                      lang !== "Eng"
+                        ? !localStorage.getItem(`compareProduct${product.id}`)
+                          ? "أضف المنتج إلى المقارنة"
+                          : "حذف المنتج من المقارنة"
+                        : !localStorage.getItem(`compareProduct${product.id}`)
+                        ? "Add Product To Comparison"
+                        : "Remove Product From Comparison"
+                    }`}
+                  />
                 </div>
                 <div className="desc mb-0">
                   <h5 className="mb-0 fw-bold d-flex justify-content-center justify-content-lg-start align-items-center mb-1">

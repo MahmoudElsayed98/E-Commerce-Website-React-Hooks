@@ -82,22 +82,11 @@ function Compare({ removeProductFromComparison, addToCart }) {
                     </thead>
                     <tbody>
                       <tr className="compare-name">
-                        <td
-                          style={{
-                            width: "20%",
-                          }}
-                          className="text-center"
-                        >
-                          {lang === "Eng" ? "Product Title" : "اسم المنتج"}
+                        <td className="text-center">
+                          {lang === "Eng" ? "Title" : "الإسم"}
                         </td>
                         {compareProducts.map((p) => (
-                          <td
-                            key={p.id}
-                            style={{
-                              width: `calc(80% / ${compareProducts.length})`,
-                            }}
-                            className="text-center"
-                          >
+                          <td key={p.id} className="text-center">
                             <Link
                               to={`/E-Commerce-Website-React-Hooks/products/${p.id}`}
                             >
@@ -108,7 +97,7 @@ function Compare({ removeProductFromComparison, addToCart }) {
                       </tr>
                       <tr className="compare-image">
                         <td className="text-center">
-                          {lang === "Eng" ? "Image" : "صورة المنتج"}
+                          {lang === "Eng" ? "Image" : "الصورة"}
                         </td>
                         {compareProducts.map((p) => (
                           <td key={p.id} className="text-center">
@@ -127,7 +116,7 @@ function Compare({ removeProductFromComparison, addToCart }) {
                       </tr>
                       <tr className="compare-price">
                         <td className="text-center">
-                          {lang === "Eng" ? "Price" : "سعر المنتج"}
+                          {lang === "Eng" ? "Price" : "السعر"}
                         </td>
                         {compareProducts.map((p) => (
                           <td key={p.id} className="text-center">
@@ -137,7 +126,7 @@ function Compare({ removeProductFromComparison, addToCart }) {
                       </tr>
                       <tr className="compare-description">
                         <td className="text-center">
-                          {lang === "Eng" ? "Description" : "وصف المنتج"}
+                          {lang === "Eng" ? "Description" : "الوصف"}
                         </td>
                         {compareProducts.map((p) => (
                           <td key={p.id} className="text-center">
@@ -147,7 +136,7 @@ function Compare({ removeProductFromComparison, addToCart }) {
                       </tr>
                       <tr className="compare-category">
                         <td className="text-center">
-                          {lang === "Eng" ? "Category" : "فئة المنتج"}
+                          {lang === "Eng" ? "Category" : "الفئة"}
                         </td>
                         {compareProducts.map((p) => (
                           <td
@@ -160,7 +149,7 @@ function Compare({ removeProductFromComparison, addToCart }) {
                       </tr>
                       <tr className="compare-rating">
                         <td className="text-center">
-                          {lang === "Eng" ? "Rating" : "تقييم المنتج"}
+                          {lang === "Eng" ? "Rating" : "التقييم"}
                         </td>
                         {compareProducts.map((p) => (
                           <td key={p.id} className="text-center">

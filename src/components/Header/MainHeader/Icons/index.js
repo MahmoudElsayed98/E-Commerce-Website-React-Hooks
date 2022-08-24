@@ -7,25 +7,25 @@ import "./index.css";
 import {
   CartProductsContext,
   CartProductsTotalSalaryContext,
-  IsCartProductsChangedContext,
+  // IsCartProductsChangedContext,
   DeliveryCostContext,
-  IsWishlistProductsChangedContext,
+  // IsWishlistProductsChangedContext,
   WishlistProductsContext,
   LanguageContext,
   CompareProductsContext,
-  IsCompareProductsChangedContext,
+  // IsCompareProductsChangedContext,
 } from "../../../../App";
 import { Link } from "react-router-dom";
 
 function Icons({ removeProductFromCart }) {
   const cartProducts = useContext(CartProductsContext);
   const cartProductsTotalSalary = useContext(CartProductsTotalSalaryContext);
-  const isCartProductsChanged = useContext(IsCartProductsChangedContext);
-  const isCompareProductsChanged = useContext(IsCompareProductsChangedContext);
+  // const isCartProductsChanged = useContext(IsCartProductsChangedContext);
+  // const isCompareProductsChanged = useContext(IsCompareProductsChangedContext);
   const deliveryCost = useContext(DeliveryCostContext);
-  const isWishlistProductsChanged = useContext(
-    IsWishlistProductsChangedContext
-  );
+  // const isWishlistProductsChanged = useContext(
+  //   IsWishlistProductsChangedContext
+  // );
   const wishlistProducts = useContext(WishlistProductsContext);
   const compareProducts = useContext(CompareProductsContext);
   const lang = useContext(LanguageContext);
@@ -65,7 +65,7 @@ function Icons({ removeProductFromCart }) {
             ) : (
               <AiFillHeart className="fs-3 mb-1 mb-lg-0" />
             )}
-            {isWishlistProductsChanged && (
+            {wishlistProducts.length !== 0 && (
               <span
                 style={lang === "Eng" ? { right: "8px" } : { left: "8px" }}
                 className="changed fw-bold position-absolute d-flex justify-content-center align-items-center rounded-circle text-light"
@@ -82,7 +82,7 @@ function Icons({ removeProductFromCart }) {
             className="position-relative text-decoration-none d-flex flex-column justify-content-center align-items-center"
           >
             <BiGitCompare className="fs-3 mb-1 mb-lg-0" />
-            {isCompareProductsChanged && (
+            {compareProducts.length !== 0 && (
               <span
                 style={lang === "Eng" ? { right: "8px" } : { left: "8px" }}
                 className="changed fw-bold position-absolute d-flex justify-content-center align-items-center rounded-circle text-light"
@@ -117,7 +117,7 @@ function Icons({ removeProductFromCart }) {
               }
             />
 
-            {isCartProductsChanged && (
+            {cartProducts.length !== 0 && (
               <span
                 style={
                   lang === "Eng" ? { right: "-2.5px" } : { left: "-2.5px" }

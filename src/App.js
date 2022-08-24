@@ -29,7 +29,7 @@ export const ProductQuantityContext = createContext();
 export const CartProductsTotalSalaryContext = createContext();
 export const IsCartProductsChangedContext = createContext();
 export const IsCompareProductsChangedContext = createContext();
-export const IsWishlistProductsChangedContext = createContext();
+// export const IsWishlistProductsChangedContext = createContext();
 export const DeliveryCostContext = createContext();
 export const ChangeLanguageContext = createContext();
 export const LanguageContext = createContext();
@@ -37,17 +37,41 @@ export const RemoveProFromWishlistContext = createContext();
 export const RemoveProFromComparisonContext = createContext();
 
 function App() {
-  const [lang, setLang] = useState("Eng");
-  const [wishlistProducts, setWishlistProducts] = useState([]);
-  const [cartProducts, setCartProducts] = useState([]);
-  const [compareProducts, setCompareProducts] = useState([]);
+  const [lang, setLang] = useState(
+    `${localStorage.getItem("lang") ? localStorage.getItem("lang") : "Eng"}`
+  );
+  const [wishlistProducts, setWishlistProducts] = useState(
+    localStorage.getItem("wishlistProducts")
+      ? JSON.parse(localStorage.getItem("wishlistProducts"))
+      : []
+  );
+  const [cartProducts, setCartProducts] = useState(
+    localStorage.getItem("cartProducts")
+      ? JSON.parse(localStorage.getItem("cartProducts"))
+      : []
+  );
+  const [compareProducts, setCompareProducts] = useState(
+    localStorage.getItem("compareProducts")
+      ? JSON.parse(localStorage.getItem("compareProducts"))
+      : []
+  );
   const [productQuantity, setProductQuantity] = useState(1);
   const [cartProductsTotalSalary, setCartProductsTotalSalary] = useState(0);
-  const [isCartProductsChanged, setIsCartProductsChanged] = useState(false);
-  const [isCompareProductsChanged, setIsCompareProductsChanged] =
-    useState(false);
-  const [isWhislistProductsChanged, setIsWhislistProductsChanged] =
-    useState(false);
+  // const [isCartProductsChanged, setIsCartProductsChanged] = useState(
+  //   localStorage.getItem("isCartProductsChanged")
+  //     ? localStorage.getItem("isCartProductsChanged")
+  //     : false
+  // );
+  // const [isCompareProductsChanged, setIsCompareProductsChanged] = useState(
+  //   localStorage.getItem("isCompareProductsChanged")
+  //     ? localStorage.getItem("isCompareProductsChanged")
+  //     : false
+  // );
+  // const [isWishlistProductsChanged, setIsWishlistProductsChanged] = useState(
+  //   localStorage.getItem("isWishlistProductsChanged")
+  //     ? localStorage.getItem("isWishlistProductsChanged")
+  //     : false
+  // );
   const websiteRef = useRef();
   const deliveryCost = 50;
 
@@ -55,7 +79,12 @@ function App() {
     calculateCartProductsTotalPrice();
   });
   useEffect(() => {
-    localStorage.clear();
+    if (localStorage.getItem("lang") === "Ar") {
+      websiteRef.current.style.direction = "rtl";
+    } else {
+      websiteRef.current.style.direction = "ltr";
+    }
+    // localStorage.clear();
   }, []);
   const calculateCartProductsTotalPrice = () => {
     let cartProductsClone = cartProducts;
@@ -68,9 +97,11 @@ function App() {
     if (language === "Eng") {
       websiteRef.current.style.direction = "ltr";
       setLang("Eng");
+      localStorage.setItem("lang", "Eng");
     } else {
       websiteRef.current.style.direction = "rtl";
       setLang("Ar");
+      localStorage.setItem("lang", "Ar");
     }
   };
   const resetProductQuantity = () => {
@@ -105,7 +136,12 @@ function App() {
       }
     );
     setCompareProducts(compareProductsClone);
-    setIsCompareProductsChanged(true);
+    // setIsCompareProductsChanged(true);
+    // localStorage.setItem("isCompareProductsChanged", true);
+    localStorage.setItem(
+      "compareProducts",
+      JSON.stringify(compareProductsClone)
+    );
   };
   const addToWishlist = (product) => {
     const wishlistProductsClone = [...wishlistProducts];
@@ -128,7 +164,12 @@ function App() {
       }
     );
     setWishlistProducts(wishlistProductsClone);
-    setIsWhislistProductsChanged(true);
+    // setIsWishlistProductsChanged(true);
+    // localStorage.setItem("isWishlistProductsChanged", true);
+    localStorage.setItem(
+      "wishlistProducts",
+      JSON.stringify(wishlistProductsClone)
+    );
   };
   const addToCart = (product) => {
     const cartProductsClone = [...cartProducts];
@@ -172,7 +213,9 @@ function App() {
       );
     }
     setCartProducts(cartProductsClone);
-    setIsCartProductsChanged(true);
+    // setIsCartProductsChanged(true);
+    // localStorage.setItem("isCartProductsChanged", true);
+    localStorage.setItem("cartProducts", JSON.stringify(cartProductsClone));
   };
   const removeProductFromCart = (product) => {
     const cartProductsClone = cartProducts;
@@ -181,6 +224,7 @@ function App() {
     );
     const newCartProductsTotalSalary = cartProductsTotalSalary - product.price;
     setCartProducts(newCartProducts);
+    localStorage.setItem("cartProducts", JSON.stringify(newCartProducts));
     setCartProductsTotalSalary(newCartProductsTotalSalary);
     toast.success(
       <ProductNotify product={product} target="cart" goal={"remove"} />,
@@ -195,9 +239,10 @@ function App() {
       }
     );
     //if cartProducts is empty
-    if (cartProducts.length === 1) {
-      setIsCartProductsChanged(false);
-    }
+    // if (cartProducts.length === 1) {
+    //   setIsCartProductsChanged(false);
+    //   localStorage.setItem("isCartProductsChanged", false);
+    // }
   };
   const removeProductFromComparison = (product) => {
     const compareProductsClone = compareProducts;
@@ -206,6 +251,7 @@ function App() {
     );
     localStorage.removeItem(`compareProduct${product.id}`);
     setCompareProducts(newCompareProducts);
+    localStorage.setItem("compareProducts", JSON.stringify(newCompareProducts));
     toast.success(
       <ProductNotify product={product} target="compare" goal={"remove"} />,
       {
@@ -219,9 +265,10 @@ function App() {
       }
     );
     //if compareProducts is empty
-    if (compareProducts.length === 1) {
-      setIsCompareProductsChanged(false);
-    }
+    // if (compareProducts.length === 1) {
+    //   setIsCompareProductsChanged(false);
+    //   localStorage.setItem("isCompareProductsChanged", false);
+    // }
   };
   const removeProductFromWishlist = (product) => {
     const wishlistProductsClone = wishlistProducts;
@@ -230,6 +277,10 @@ function App() {
     );
     localStorage.removeItem(`wishlistProduct${product.id}`);
     setWishlistProducts(newWishlistProducts);
+    localStorage.setItem(
+      "wishlistProducts",
+      JSON.stringify(newWishlistProducts)
+    );
     toast.success(
       <ProductNotify product={product} target="wishlist" goal={"remove"} />,
       {
@@ -243,15 +294,16 @@ function App() {
       }
     );
     //if wishlistProducts is empty
-    if (wishlistProducts.length === 1) {
-      setIsWhislistProductsChanged(false);
-    }
+    // if (wishlistProducts.length === 1) {
+    //   setIsWishlistProductsChanged(false);
+    //   localStorage.setItem("isWishlistProductsChanged", false);
+    // }
   };
   const handleCheckout = () => {
     setCartProducts([]);
     setCartProductsTotalSalary(0);
-    setIsCartProductsChanged(false);
-    setIsWhislistProductsChanged(false);
+    // setIsCartProductsChanged(false);
+    // setIsWishlistProductsChanged(false);
     localStorage.clear();
     // alert("Purchased Successfully");
   };
@@ -262,214 +314,215 @@ function App() {
           <CartProductsTotalSalaryContext.Provider
             value={cartProductsTotalSalary}
           >
-            <IsCartProductsChangedContext.Provider
+            {/* <IsCartProductsChangedContext.Provider
               value={isCartProductsChanged}
-            >
-              <IsCompareProductsChangedContext.Provider
+            > */}
+            {/* <IsCompareProductsChangedContext.Provider
                 value={isCompareProductsChanged}
-              >
-                <DeliveryCostContext.Provider value={deliveryCost}>
-                  <WishlistProductsContext.Provider value={wishlistProducts}>
-                    <IsWishlistProductsChangedContext.Provider
-                      value={isWhislistProductsChanged}
+              > */}
+            <DeliveryCostContext.Provider value={deliveryCost}>
+              <WishlistProductsContext.Provider value={wishlistProducts}>
+                {/* <IsWishlistProductsChangedContext.Provider
+                      value={isWishlistProductsChanged}
+                    > */}
+                <ChangeLanguageContext.Provider value={changeLanguage}>
+                  <LanguageContext.Provider value={lang}>
+                    <RemoveProFromWishlistContext.Provider
+                      value={removeProductFromWishlist}
                     >
-                      <ChangeLanguageContext.Provider value={changeLanguage}>
-                        <LanguageContext.Provider value={lang}>
-                          <RemoveProFromWishlistContext.Provider
-                            value={removeProductFromWishlist}
-                          >
-                            <RemoveProFromComparisonContext.Provider
-                              value={removeProductFromComparison}
-                            >
-                              <div
-                                className="e-commerce-website"
-                                ref={websiteRef}
-                              >
-                                <ToastContainer
-                                  position="top-right"
-                                  autoClose={2000}
-                                  hideProgressBar={false}
-                                  newestOnTop={false}
-                                  closeOnClick
-                                  rtl={false}
-                                  pauseOnFocusLoss
-                                  draggable
-                                  pauseOnHover
-                                />
-                                <Header
+                      <RemoveProFromComparisonContext.Provider
+                        value={removeProductFromComparison}
+                      >
+                        <div className="e-commerce-website" ref={websiteRef}>
+                          <ToastContainer
+                            position="top-right"
+                            autoClose={2000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                          />
+                          <Header
+                            removeProductFromCart={removeProductFromCart}
+                          />
+                          <Routes>
+                            <Route
+                              path="/E-Commerce-Website-React-Hooks/"
+                              element={<Home lang={lang} />}
+                            />
+                            <Route
+                              path="/E-Commerce-Website-React-Hooks/cart"
+                              element={
+                                <Cart
                                   removeProductFromCart={removeProductFromCart}
+                                  deliveryCost={deliveryCost}
                                 />
-                                <Routes>
-                                  <Route
-                                    path="/E-Commerce-Website-React-Hooks/"
-                                    element={<Home lang={lang} />}
+                              }
+                            />
+                            <Route
+                              path="/E-Commerce-Website-React-Hooks/products"
+                              element={<ProductsHeader />}
+                            >
+                              <Route
+                                index
+                                element={
+                                  <Products
+                                    category=""
+                                    skeletonCardsNo={20}
+                                    addToCart={addToCart}
+                                    addToWishlist={addToWishlist}
+                                    addToComparison={addToComparison}
                                   />
-                                  <Route
-                                    path="/E-Commerce-Website-React-Hooks/cart"
-                                    element={
-                                      <Cart
-                                        removeProductFromCart={
-                                          removeProductFromCart
-                                        }
-                                        deliveryCost={deliveryCost}
-                                      />
+                                }
+                              />
+                              <Route
+                                path="men's%20clothing"
+                                element={
+                                  <Products
+                                    category={"category/men's clothing"}
+                                    skeletonCardsNo={4}
+                                    addToCart={addToCart}
+                                    addToWishlist={addToWishlist}
+                                    addToComparison={addToComparison}
+                                  />
+                                }
+                              />
+                              <Route
+                                path="women's%20clothing"
+                                element={
+                                  <Products
+                                    category={"category/women's clothing"}
+                                    skeletonCardsNo={6}
+                                    addToCart={addToCart}
+                                    addToWishlist={addToWishlist}
+                                    addToComparison={addToComparison}
+                                  />
+                                }
+                              />
+                              <Route
+                                path="jewelery"
+                                element={
+                                  <Products
+                                    category="category/jewelery"
+                                    skeletonCardsNo={4}
+                                    addToCart={addToCart}
+                                    addToWishlist={addToWishlist}
+                                    addToComparison={addToComparison}
+                                  />
+                                }
+                              />
+                              <Route
+                                path="electronics"
+                                element={
+                                  <Products
+                                    category="category/electronics"
+                                    skeletonCardsNo={6}
+                                    addToCart={addToCart}
+                                    addToWishlist={addToWishlist}
+                                    addToComparison={addToComparison}
+                                  />
+                                }
+                              />
+                              <Route
+                                path=":id"
+                                element={
+                                  <ProductDetails
+                                    addToCart={addToCart}
+                                    addToComparison={addToComparison}
+                                    addToWishlist={addToWishlist}
+                                    cartProducts={cartProducts}
+                                    productQuantity={productQuantity}
+                                    removeProductFromComparison={
+                                      removeProductFromComparison
+                                    }
+                                    removeProductFromWishlist={
+                                      removeProductFromWishlist
+                                    }
+                                    resetProductQuantity={resetProductQuantity}
+                                    increaseProductQuantity={
+                                      increaseProductQuantity
+                                    }
+                                    decreaseProductQuantity={
+                                      decreaseProductQuantity
                                     }
                                   />
-                                  <Route
-                                    path="/E-Commerce-Website-React-Hooks/products"
-                                    element={<ProductsHeader />}
-                                  >
-                                    <Route
-                                      index
-                                      element={
-                                        <Products
-                                          category=""
-                                          skeletonCardsNo={20}
-                                          addToCart={addToCart}
-                                          addToWishlist={addToWishlist}
-                                          addToComparison={addToComparison}
-                                        />
-                                      }
-                                    />
-                                    <Route
-                                      path="men's%20clothing"
-                                      element={
-                                        <Products
-                                          category={"category/men's clothing"}
-                                          skeletonCardsNo={4}
-                                          addToCart={addToCart}
-                                          addToWishlist={addToWishlist}
-                                          addToComparison={addToComparison}
-                                        />
-                                      }
-                                    />
-                                    <Route
-                                      path="women's%20clothing"
-                                      element={
-                                        <Products
-                                          category={"category/women's clothing"}
-                                          skeletonCardsNo={6}
-                                          addToCart={addToCart}
-                                          addToWishlist={addToWishlist}
-                                          addToComparison={addToComparison}
-                                        />
-                                      }
-                                    />
-                                    <Route
-                                      path="jewelery"
-                                      element={
-                                        <Products
-                                          category="category/jewelery"
-                                          skeletonCardsNo={4}
-                                          addToCart={addToCart}
-                                          addToWishlist={addToWishlist}
-                                          addToComparison={addToComparison}
-                                        />
-                                      }
-                                    />
-                                    <Route
-                                      path="electronics"
-                                      element={
-                                        <Products
-                                          category="category/electronics"
-                                          skeletonCardsNo={6}
-                                          addToCart={addToCart}
-                                          addToWishlist={addToWishlist}
-                                          addToComparison={addToComparison}
-                                        />
-                                      }
-                                    />
-                                    <Route
-                                      path=":id"
-                                      element={
-                                        <ProductDetails
-                                          cartProducts={cartProducts}
-                                          productQuantity={productQuantity}
-                                          resetProductQuantity={
-                                            resetProductQuantity
-                                          }
-                                          addToCart={addToCart}
-                                          increaseProductQuantity={
-                                            increaseProductQuantity
-                                          }
-                                          decreaseProductQuantity={
-                                            decreaseProductQuantity
-                                          }
-                                        />
-                                      }
-                                    />
-                                  </Route>
-                                  <Route
-                                    path="/E-Commerce-Website-React-Hooks/about"
-                                    element={<About lang={lang} />}
-                                  />
-                                  <Route
-                                    path="/E-Commerce-Website-React-Hooks/contact"
-                                    element={<Contact lang={lang} />}
-                                  />
-                                  <Route
-                                    path="/E-Commerce-Website-React-Hooks/sign-in"
-                                    element={<SignIn lang={lang} />}
-                                  />
-                                  <Route
-                                    path="/E-Commerce-Website-React-Hooks/register"
-                                    element={<Register lang={lang} />}
-                                  />
-                                  <Route
-                                    path="/E-Commerce-Website-React-Hooks/wishlist"
-                                    element={
-                                      <Wishlist
-                                        removeProductFromWishlist={
-                                          removeProductFromWishlist
-                                        }
-                                      />
-                                    }
-                                  />
-                                  <Route
-                                    path="/E-Commerce-Website-React-Hooks/compare"
-                                    element={
-                                      <Compare
-                                        removeProductFromComparison={
-                                          removeProductFromComparison
-                                        }
-                                        addToCart={addToCart}
-                                      />
-                                    }
-                                  />
-                                  <Route
-                                    path="/E-Commerce-Website-React-Hooks/checkout"
-                                    element={
-                                      <Checkout
-                                        cartProductsTotalSalary={
-                                          cartProductsTotalSalary
-                                        }
-                                        deliveryCost={deliveryCost}
-                                        cartProducts={cartProducts}
-                                        handleCheckout={handleCheckout}
-                                      />
-                                    }
-                                  />
-                                  <Route
-                                    path="*"
-                                    element={
-                                      // <Navigate
-                                      //   to="/E-Commerce-Website-React-Hooks/"
-                                      // />
-                                      <NotFound />
-                                    }
-                                  />
-                                </Routes>
-                                <Footer lang={lang} />
-                              </div>
-                            </RemoveProFromComparisonContext.Provider>
-                          </RemoveProFromWishlistContext.Provider>
-                        </LanguageContext.Provider>
-                      </ChangeLanguageContext.Provider>
-                    </IsWishlistProductsChangedContext.Provider>
-                  </WishlistProductsContext.Provider>
-                </DeliveryCostContext.Provider>
-              </IsCompareProductsChangedContext.Provider>
-            </IsCartProductsChangedContext.Provider>
+                                }
+                              />
+                            </Route>
+                            <Route
+                              path="/E-Commerce-Website-React-Hooks/about"
+                              element={<About lang={lang} />}
+                            />
+                            <Route
+                              path="/E-Commerce-Website-React-Hooks/contact"
+                              element={<Contact lang={lang} />}
+                            />
+                            <Route
+                              path="/E-Commerce-Website-React-Hooks/sign-in"
+                              element={<SignIn lang={lang} />}
+                            />
+                            <Route
+                              path="/E-Commerce-Website-React-Hooks/register"
+                              element={<Register lang={lang} />}
+                            />
+                            <Route
+                              path="/E-Commerce-Website-React-Hooks/wishlist"
+                              element={
+                                <Wishlist
+                                  removeProductFromWishlist={
+                                    removeProductFromWishlist
+                                  }
+                                />
+                              }
+                            />
+                            <Route
+                              path="/E-Commerce-Website-React-Hooks/compare"
+                              element={
+                                <Compare
+                                  removeProductFromComparison={
+                                    removeProductFromComparison
+                                  }
+                                  addToCart={addToCart}
+                                />
+                              }
+                            />
+                            <Route
+                              path="/E-Commerce-Website-React-Hooks/checkout"
+                              element={
+                                <Checkout
+                                  cartProductsTotalSalary={
+                                    cartProductsTotalSalary
+                                  }
+                                  deliveryCost={deliveryCost}
+                                  cartProducts={cartProducts}
+                                  handleCheckout={handleCheckout}
+                                />
+                              }
+                            />
+                            <Route
+                              path="*"
+                              element={
+                                // <Navigate
+                                //   to="/E-Commerce-Website-React-Hooks/"
+                                // />
+                                <NotFound />
+                              }
+                            />
+                          </Routes>
+                          <Footer lang={lang} />
+                        </div>
+                      </RemoveProFromComparisonContext.Provider>
+                    </RemoveProFromWishlistContext.Provider>
+                  </LanguageContext.Provider>
+                </ChangeLanguageContext.Provider>
+                {/* </IsWishlistProductsChangedContext.Provider> */}
+              </WishlistProductsContext.Provider>
+            </DeliveryCostContext.Provider>
+            {/* </IsCompareProductsChangedContext.Provider> */}
+            {/* </IsCartProductsChangedContext.Provider> */}
           </CartProductsTotalSalaryContext.Provider>
         </ProductQuantityContext.Provider>
       </CompareProductsContext.Provider>

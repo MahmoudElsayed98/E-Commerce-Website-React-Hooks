@@ -16,13 +16,16 @@
 }
 
 /* Table Styling */
+table thead tr th:first-of-type p {
+  width: 160px;
+}
 table thead,
 table tbody,
 table tfoot {
   border: none;
 }
 table .compare-image .image {
-  width: 120px;
+  width: 212.5px;
   background-color: var(--thirdColor);
 }
 table td,
@@ -55,6 +58,6 @@ table thead th {
 }
 @media (max-width: 992px) {
   .compare-buttons button span {
-    font-size: 13.5px;
+    font-size: 12.98px;
   }
 }

@@ -85,6 +85,6 @@
   background-color: var(--hoverColor);
   border-color: var(--hoverColor);
 }
-.btn-main:focus {
+.btn:active:focus {
   box-shadow: none;
 }

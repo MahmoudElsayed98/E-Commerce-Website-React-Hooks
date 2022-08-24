@@ -7,6 +7,12 @@
     min-height: calc(100vh - (32px + 81.47px + 49px + 57px));
   }
 }
+.product-details .container .cat {
+  width: fit-content;
+  background-color: var(--mainColor);
+  top: 12px;
+  left: 12px;
+}
 .product-details::after {
   content: "";
   position: absolute;
@@ -34,10 +40,30 @@
   height: 38.21px;
 }
 .product-details .add-to-cart .product-quantity {
-  border: 1px solid var(--mainColor);
   color: var(--mainColor);
-  width: 50px;
   height: 38px;
+}
+.product-details .add-to-cart .product-quantity > span {
+  /* border: 1px solid var(--mainColor); */
+  min-width: 27.5px;
+  font-size: 20px;
+}
+/* .product-details .add-to-cart .product-quantity > svg:first-of-type,
+.product-details .add-to-cart .product-quantity > svg:last-of-type {
+  border-top: 1px solid var(--mainColor);
+  border-bottom: 1px solid var(--mainColor);
+} */
+.product-details .add-to-cart .product-quantity > svg:first-of-type {
+  /* min-width: 32.59px; */
+  min-width: 27.5px;
+  /* border-left: 1px solid var(--mainColor); */
+}
+.product-details .add-to-cart .product-quantity > svg:last-of-type {
+  min-width: 27.5px;
+  /* border-right: 1px solid var(--mainColor); */
+}
+.product-details .add-to-cart .product-quantity > span::selection {
+  background-color: transparent;
 }
 /* .product-details .desc {
   height: 220.07px;
@@ -88,30 +114,32 @@
     font-size: 14.25px;
   }
   .product-details .btn-primary {
-    /* padding: 4px 10px; */
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
     border-radius: 0.2rem;
   }
   .product-details .add-to-cart .product-quantity {
-    width: 43px;
     height: 31px;
   }
   .product-details .add-to-cart {
     height: 34px;
   }
+  .product-details .container .cat {
+    top: -12px;
+    left: 12px;
+  }
 }
-.product-details .btn-primary {
+/* .product-details .btn-primary {
   background-color: var(--mainColor);
   border: 1px solid transparent;
-}
-.product-details .btn-primary:hover {
+} */
+/* .product-details .btn-primary:hover {
   background-color: var(--hoverColor);
   border-color: var(--hoverColor);
-}
-.product-details .btn-primary:focus {
+} */
+/* .product-details .btn-primary:focus {
   box-shadow: none;
-}
+} */
 @media (max-width: 767px) {
   .product-details {
     min-height: calc(100vh - (32px + 81.47px + 114px + 57px));
@@ -124,5 +152,8 @@
   }
   .product-details .desc {
     height: auto;
+  }
+  .product-details .container .cat {
+    font-size: 13px;
   }
 }

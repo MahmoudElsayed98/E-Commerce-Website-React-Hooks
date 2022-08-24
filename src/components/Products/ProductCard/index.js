@@ -26,7 +26,7 @@ function ProductCard({ product, addToCart, addToWishlist, addToComparison }) {
       // ref={this.r}
     >
       <BiGitCompare
-        className="comparison position-absolute"
+        className="comparison position-absolute svg"
         role="button"
         onClick={() => {
           !localStorage.getItem(`compareProduct${product.id}`)
@@ -45,7 +45,7 @@ function ProductCard({ product, addToCart, addToWishlist, addToComparison }) {
       />
       {!localStorage.getItem(`wishlistProduct${product.id}`) ? (
         <AiOutlineHeart
-          className="position-absolute heart"
+          className="position-absolute heart svg"
           role="button"
           onClick={() => {
             addToWishlist(product);
@@ -58,7 +58,7 @@ function ProductCard({ product, addToCart, addToWishlist, addToComparison }) {
         />
       ) : (
         <AiFillHeart
-          className="position-absolute fill-heart"
+          className="position-absolute fill-heart svg"
           role="button"
           onClick={() => {
             removeProductFromWishlist(product);
