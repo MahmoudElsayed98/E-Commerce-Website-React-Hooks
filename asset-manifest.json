@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/E-Commerce-Website-React-Hooks/static/css/main.86801964.css",
-    "main.js": "/E-Commerce-Website-React-Hooks/static/js/main.98e16bdb.js",
+    "main.css": "/E-Commerce-Website-React-Hooks/static/css/main.4c23de6d.css",
+    "main.js": "/E-Commerce-Website-React-Hooks/static/js/main.44d1c85d.js",
     "static/js/787.7efd31bd.chunk.js": "/E-Commerce-Website-React-Hooks/static/js/787.7efd31bd.chunk.js",
     "static/media/glossy-e-commerce.png": "/E-Commerce-Website-React-Hooks/static/media/glossy-e-commerce.d1e25e1bf58f5817ac36.png",
     "static/media/istockphoto-1096460950-612x612.jpg": "/E-Commerce-Website-React-Hooks/static/media/istockphoto-1096460950-612x612.ca3f9a613059bdb6a3ea.jpg",
     "static/media/website arabic logo.png": "/E-Commerce-Website-React-Hooks/static/media/website arabic logo.e589c56e5428146daeae.png",
     "index.html": "/E-Commerce-Website-React-Hooks/index.html",
-    "main.86801964.css.map": "/E-Commerce-Website-React-Hooks/static/css/main.86801964.css.map",
-    "main.98e16bdb.js.map": "/E-Commerce-Website-React-Hooks/static/js/main.98e16bdb.js.map",
+    "main.4c23de6d.css.map": "/E-Commerce-Website-React-Hooks/static/css/main.4c23de6d.css.map",
+    "main.44d1c85d.js.map": "/E-Commerce-Website-React-Hooks/static/js/main.44d1c85d.js.map",
     "787.7efd31bd.chunk.js.map": "/E-Commerce-Website-React-Hooks/static/js/787.7efd31bd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.86801964.css",
-    "static/js/main.98e16bdb.js"
+    "static/css/main.4c23de6d.css",
+    "static/js/main.44d1c85d.js"
   ]
 }
