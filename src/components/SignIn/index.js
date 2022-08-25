@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { IconContext } from "react-icons";
 import { IoLogoFacebook } from "react-icons/io5";
 import { AiFillGoogleCircle, AiFillTwitterCircle } from "react-icons/ai";
 import "./index.css";
 import { Link } from "react-router-dom";
+import { UsersContext } from "../../App";
 
 function SignIn({ lang }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const users = useContext(UsersContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +23,7 @@ function SignIn({ lang }) {
   };
   return (
     <div className="login">
-      <div className="container d-flex justify-content-center align-items-center h-100">
+      <div className="container d-flex flex-column justify-content-center align-items-center h-100">
         <div className="login-form my-4 py-4 rounded d-flex flex-column align-items-center">
           <h1 className="fw-bold mb-0 text-center text-uppercase mb-3">
             {lang === "Eng" ? "login" : "تسجيل الدخول"}

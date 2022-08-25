@@ -26,7 +26,6 @@ function ProductDetails({
   let { id } = useParams();
   const lang = useContext(LanguageContext);
   useEffect(() => {
-    console.log(id);
     if (id < 20) {
       setProductDetailsFetchingFailed(false);
     }
@@ -81,18 +80,18 @@ function ProductDetails({
                       lang === "Eng" ? "me-2" : "ms-2"
                     }`}
                   >
-                    <IoIosArrowUp
-                      role="button"
-                      onClick={increaseProductQuantity}
-                      className="d-block h-100 rounded-start"
-                    />
-                    <span className="d-flex justify-content-center align-items-center w-100 h-100 fs-5">
-                      {productQuantity}
-                    </span>
                     <IoIosArrowDown
                       role="button"
                       onClick={decreaseProductQuantity}
                       className="d-block h-100 rounded-end"
+                    />
+                    <span className="d-flex justify-content-center align-items-center w-100 h-100 fs-5">
+                      {productQuantity}
+                    </span>
+                    <IoIosArrowUp
+                      role="button"
+                      onClick={increaseProductQuantity}
+                      className="d-block h-100 rounded-start"
                     />
                     {/* <span className="up-down w-50 h-100 d-flex flex-column justify-content-center align-items-center pe-1"> */}
                     {/* </span> */}

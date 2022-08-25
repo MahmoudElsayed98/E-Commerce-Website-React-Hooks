@@ -16,6 +16,15 @@
 }
 
 /* Table Styling */
+.table .table-responsive::-webkit-scrollbar {
+  height: 2.5px;
+}
+.table .table-responsive::-webkit-scrollbar-thumb {
+  border: none;
+}
+.table .table-responsive::-webkit-scrollbar-track {
+  box-shadow: #eee;
+}
 table thead tr th:first-of-type p {
   width: 160px;
 }

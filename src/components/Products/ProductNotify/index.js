@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { LanguageContext } from "../../../App";
+import { LanguageContext, UsersContext } from "../../../App";
 import "./index.css";
 
 function AddProductNotify({ product, target, alreadyAdded, goal }) {
   const lang = useContext(LanguageContext);
+  const users = useContext(UsersContext);
   return (
     <div
       className="product-added d-flex align-items-center justify-content-center"

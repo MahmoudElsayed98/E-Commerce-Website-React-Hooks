@@ -1,5 +1,4 @@
 .sign-in a {
-  width: 60px;
   height: 60px;
   text-align: center;
   cursor: pointer;
@@ -12,7 +11,7 @@
 }
 .cart {
   transition: var(--mainDuration);
-  width: fit-content;
+  min-width: 180px;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
@@ -107,12 +106,6 @@
   .cart:hover > a span::after {
     display: block;
   }
-}
-.icons {
-  width: 30%;
-}
-.icons .sign-in {
-  margin-right: 3px;
 }
 .icons .sign-in p {
   font-size: 15px;

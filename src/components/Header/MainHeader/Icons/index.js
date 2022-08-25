@@ -13,6 +13,7 @@ import {
   WishlistProductsContext,
   LanguageContext,
   CompareProductsContext,
+  CartProductsTotalNumberContext,
   // IsCompareProductsChangedContext,
 } from "../../../../App";
 import { Link } from "react-router-dom";
@@ -29,10 +30,15 @@ function Icons({ removeProductFromCart }) {
   const wishlistProducts = useContext(WishlistProductsContext);
   const compareProducts = useContext(CompareProductsContext);
   const lang = useContext(LanguageContext);
+  const cartProductsTotalNumber = useContext(CartProductsTotalNumberContext);
   return (
     <>
       <div className="icons d-flex flex-column flex-lg-row align-items-center justify-content-center">
-        <div className="sign-in">
+        <div
+          className={`sign-in ${
+            lang === "Eng" ? "me-lg-2 me-xl-3" : "ms-lg-2 ms-xl-3"
+          }`}
+        >
           <Link
             to="/E-Commerce-Website-React-Hooks/sign-in"
             className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
@@ -46,7 +52,11 @@ function Icons({ removeProductFromCart }) {
             </p>
           </Link>
         </div>
-        <div className="sign-in">
+        <div
+          className={`sign-in ${
+            lang === "Eng" ? "me-lg-2 me-xl-3" : "ms-lg-2 ms-xl-3"
+          }`}
+        >
           <Link
             to="/E-Commerce-Website-React-Hooks/register"
             className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
@@ -55,7 +65,11 @@ function Icons({ removeProductFromCart }) {
             <p className="fw-bold">{lang === "Eng" ? "Sign Up" : "الاشتراك"}</p>
           </Link>
         </div>
-        <div className="sign-in">
+        <div
+          className={`sign-in ${
+            lang === "Eng" ? "me-lg-2 me-xl-3" : "ms-lg-2 ms-xl-3"
+          }`}
+        >
           <Link
             to="/E-Commerce-Website-React-Hooks/wishlist"
             className="position-relative text-decoration-none d-flex flex-column justify-content-center align-items-center"
@@ -95,7 +109,7 @@ function Icons({ removeProductFromCart }) {
         </div>
       </div>
       <div
-        className="cart d-flex align-items-center justify-content-center position-relative"
+        className="cart d-flex align-items-center justify-content-end position-relative"
         role="button"
       >
         <Link
@@ -104,7 +118,7 @@ function Icons({ removeProductFromCart }) {
         >
           <span className="cart-detail position-relative d-flex justify-content-center align-items-center">
             <p className="mb-0">
-              {cartProducts.length +
+              {cartProductsTotalNumber +
                 ` ${lang === "Eng" ? "Item(s)" : "منتجات"} - $` +
                 cartProductsTotalSalary.toFixed(2)}
             </p>
