@@ -13,6 +13,11 @@
 .links button#dropdown-basic p,
 .links button#dropdown-basic::after {
   color: var(--secondaryColor);
+  transition: var(--mainDuration);
+}
+.links button#dropdown-basic:hover::after,
+.links button#dropdown-basic:hover p {
+  color: var(--mainColor);
 }
 .links .dropdown-menu.show {
   background-color: var(--hoverColor);

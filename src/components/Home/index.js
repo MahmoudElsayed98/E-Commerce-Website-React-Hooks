@@ -12,7 +12,7 @@ function Home({ lang }) {
     <div className="home d-flex justify-content-center align-items-center d-lg-block py-4 py-lg-0">
       <div className="container">
         <div className="row align-items-center flex-column flex-lg-row py-lg-4">
-          <div className="position-relative col-11 col-md-8 col-lg-6 mb-1 mb-lg-0">
+          <div className="position-relative col-10 col-md-8 col-lg-6 mb-1 mb-lg-0">
             <img src={image} className="img-fluid" alt="Welcome Img" />
           </div>
           <div className="col-11 col-md-8 col-lg-6 text-center text">

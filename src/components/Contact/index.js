@@ -81,7 +81,9 @@ function Contact({ lang }) {
           <Button
             variant="primary"
             type="submit"
-            className=" d-block ms-md-auto"
+            className={`d-block ${
+              lang === "Eng" ? "ms-md-auto" : "me-md-auto"
+            }`}
           >
             {lang === "Eng" ? "Send Your Message" : "ارسل رسالتك"}
           </Button>

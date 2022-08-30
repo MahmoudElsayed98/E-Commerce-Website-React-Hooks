@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { IconContext } from "react-icons";
 import { IoLogoFacebook } from "react-icons/io5";
@@ -10,10 +11,22 @@ function Register({ lang }) {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let users = localStorage.getItem("users")
+      ? JSON.parse(localStorage.getItem("users"))
+      : [];
+    users.push({ userName, email, password });
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem(
+      "currentUser",
+      JSON.stringify({ userName, email, password })
+    );
     resetForm();
+    navigate("/E-Commerce-Website-React-Hooks/");
+    window.location.reload();
   };
   const resetForm = () => {
     setEmail("");
@@ -35,6 +48,7 @@ function Register({ lang }) {
                 {lang === "Eng" ? "Username" : "اسم المستخدم"}
               </Form.Label>
               <Form.Control
+                required
                 type="text"
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
@@ -49,6 +63,7 @@ function Register({ lang }) {
                 {lang === "Eng" ? "Email Address" : "البريد الالكترونى"}
               </Form.Label>
               <Form.Control
+                required
                 type="email"
                 className="input"
                 aria-describedby="emailHelp"
@@ -67,6 +82,7 @@ function Register({ lang }) {
                 {lang === "Eng" ? "Password" : "كلمة المرور"}
               </Form.Label>
               <Form.Control
+                required
                 type="password"
                 placeholder={`${
                   lang === "Eng" ? "Enter Password" : "ادخل كلمة المرور"

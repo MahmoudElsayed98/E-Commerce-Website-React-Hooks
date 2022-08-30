@@ -1,20 +1,62 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { IconContext } from "react-icons";
 import { IoLogoFacebook } from "react-icons/io5";
 import { AiFillGoogleCircle, AiFillTwitterCircle } from "react-icons/ai";
 import "./index.css";
 import { Link } from "react-router-dom";
-import { UsersContext } from "../../App";
 
-function SignIn({ lang }) {
+function SignIn({ lang, children }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const users = useContext(UsersContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    resetForm();
+    if (!localStorage.getItem("users")) {
+      alert("Invalid Email Address Or Password!");
+    } else {
+      JSON.parse(localStorage.getItem("users")).forEach((u) => {
+        if (email === u.email && password === u.password) {
+          localStorage.setItem(
+            "currentUser",
+            JSON.stringify({ email, password })
+          );
+        }
+        if (email === u.email) {
+          localStorage.setItem("currentUserEmail", u.email);
+        } else {
+          localStorage.removeItem("currentUserEmail");
+        }
+        if (password === u.password) {
+          localStorage.setItem("currentUserPassword", u.password);
+        } else {
+          localStorage.removeItem("currentUserPassword");
+        }
+      });
+      if (!localStorage.getItem("currentUser")) {
+        if (
+          !localStorage.getItem("currentUserEmail") &&
+          !localStorage.getItem("currentUserPassword")
+        ) {
+          alert("Invalid Email Address Or Password!");
+        } else {
+          if (!localStorage.getItem("currentUserEmail")) {
+            alert("Invalid Email Address!");
+          }
+          if (!localStorage.getItem("currentUserPassword")) {
+            alert("Invalid Password!");
+          }
+        }
+      } else {
+        if (!localStorage.getItem("isInWishlist")) {
+          navigate("/E-Commerce-Website-React-Hooks/");
+        }
+        window.location.reload();
+      }
+    }
+    // resetForm();
   };
 
   const resetForm = () => {
@@ -24,6 +66,7 @@ function SignIn({ lang }) {
   return (
     <div className="login">
       <div className="container d-flex flex-column justify-content-center align-items-center h-100">
+        {children}
         <div className="login-form my-4 py-4 rounded d-flex flex-column align-items-center">
           <h1 className="fw-bold mb-0 text-center text-uppercase mb-3">
             {lang === "Eng" ? "login" : "تسجيل الدخول"}

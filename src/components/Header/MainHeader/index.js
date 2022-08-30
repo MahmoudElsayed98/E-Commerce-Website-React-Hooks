@@ -41,7 +41,7 @@ function MainHeader({ removeProductFromCart }) {
       <Container>
         <Navbar.Brand
           href="/E-Commerce-Website-React-Hooks/"
-          // onClick={() => localStorage.clear()}
+          onClick={() => localStorage.clear()}
           className={`${lang === "Eng" ? "me-3" : "ms-3"}`}
         >
           <img

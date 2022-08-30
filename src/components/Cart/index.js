@@ -27,7 +27,7 @@ function Cart({ removeProductFromCart, deliveryCost }) {
           <div className="col-md-8 col-lg-7">
             {cartProducts.length === 0 ? (
               <span className="w-100 cart-info d-block position-absolute top-50 start-50">
-                <p className="mb-0 text-center">
+                <p className="mb-0 text-center para">
                   {lang === "Eng"
                     ? "Your shopping cart is currently empty!"
                     : "سلة التسوق الخاصة بك فارغة حالياً!"}
@@ -36,7 +36,7 @@ function Cart({ removeProductFromCart, deliveryCost }) {
                   to="/E-Commerce-Website-React-Hooks/products"
                   className="text-decoration-none"
                 >
-                  <button className="btn btn-lg btn-primary d-block mx-auto mt-2">
+                  <button className="btn btn-lg btn-primary btn-main d-block mx-auto mt-2">
                     {lang === "Eng" ? "GO SHOPPING NOW" : "الذهاب للتسوق الآن"}
                   </button>
                 </Link>

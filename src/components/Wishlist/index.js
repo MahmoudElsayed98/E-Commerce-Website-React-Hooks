@@ -1,23 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./index.css";
 import { GoPrimitiveDot } from "react-icons/go";
 import { FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import {
-  LanguageContext,
-  UsersContext,
-  WishlistProductsContext,
-} from "../../App.js";
+import { LanguageContext, WishlistProductsContext } from "../../App.js";
 import SignIn from "../SignIn";
 
 function Wishlist({ removeProductFromWishlist }) {
   const lang = useContext(LanguageContext);
   const wishlistProducts = useContext(WishlistProductsContext);
-  const users = useContext(UsersContext);
+  useEffect(() => {
+    localStorage.setItem("isInWishlist", true);
+    return () => {
+      localStorage.removeItem("isInWishlist", true);
+    };
+  });
   return (
     <>
-      {users.length === 0 ? (
-        <SignIn lang={lang} />
+      {!localStorage.getItem("currentUser") ? (
+        <SignIn lang={lang}>
+          <p className="mb-0 lead w-100 pt-4 fw-bold">
+            - You must login or{" "}
+            <Link to="/E-Commerce-Website-React-Hooks/register">
+              create an account
+            </Link>{" "}
+            to save products to your wishlist.
+          </p>
+        </SignIn>
       ) : (
         <div className="cart-comp py-4 position-relative">
           <div className="container">
@@ -33,7 +42,7 @@ function Wishlist({ removeProductFromWishlist }) {
               <div className="col-md-8 col-lg-7">
                 {wishlistProducts.length === 0 ? (
                   <span className="w-100 cart-info d-block position-absolute top-50 start-50">
-                    <p className="mb-0 text-center">
+                    <p className="mb-0 text-center para">
                       {lang === "Eng"
                         ? "Your wishlist is currently empty!"
                         : "قائمة رغباتك فارغة حالياً!"}
@@ -42,7 +51,7 @@ function Wishlist({ removeProductFromWishlist }) {
                       to="/E-Commerce-Website-React-Hooks/products"
                       className="text-decoration-none"
                     >
-                      <button className="btn btn-lg btn-primary d-block mx-auto mt-2">
+                      <button className="btn btn-lg btn-primary btn-main d-block mx-auto mt-2">
                         {lang === "Eng"
                           ? "GO SHOPPING NOW"
                           : "الذهاب للتسوق الآن"}

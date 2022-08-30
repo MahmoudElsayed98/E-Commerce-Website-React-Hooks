@@ -3,8 +3,13 @@ import "./index.css";
 
 function NotFound() {
   return (
-    <div className="not-found py-4 fs-1 d-flex justify-content-center align-items-center">
-      Unfortunately, this page doesn't exist.
+    <div className="not-found py-4 d-flex flex-column justify-content-center align-items-center">
+      <p className="mb-0 text-center para">
+        Unfortunately, this page doesn't exist.
+      </p>
+      <button className="btn btn-primary btn-lg btn-main mt-2 text-uppercase">
+        Continue
+      </button>
     </div>
   );
 }

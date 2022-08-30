@@ -1,7 +1,6 @@
 .login {
   min-height: calc(100vh - (32px + 81.47px + 57px));
   position: relative;
-  color: var(--mainColor);
 }
 .login::after {
   content: "";
@@ -15,6 +14,7 @@
   opacity: 0.03;
 }
 .login .login-form {
+  color: var(--mainColor);
   width: 45%;
   border: var(--mainBorder);
 }
@@ -31,14 +31,18 @@
 .login form input:focus {
   box-shadow: none;
 }
-.login form input:focus,
-.login form input:hover {
+.login form input:hover,
+.login form input:focus {
   border-color: var(--mainColor);
 }
-.login form .input,
-.login form input:focus {
+.login form .input:not(.form-check-input),
+.login form input:not(.form-check-input):focus {
   color: var(--mainColor);
 }
+/* .form-check-input:checked {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+} */
 .login form .btn-primary:focus {
   box-shadow: none;
 }

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { FaUserCircle, FaUserEdit, FaTrashAlt } from "react-icons/fa";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { BiGitCompare } from "react-icons/bi";
+import { RiLogoutCircleRLine, RiLogoutCircleLine } from "react-icons/ri";
 import { TiShoppingCart } from "react-icons/ti";
 import "./index.css";
 import {
@@ -39,31 +40,70 @@ function Icons({ removeProductFromCart }) {
             lang === "Eng" ? "me-lg-2 me-xl-3" : "ms-lg-2 ms-xl-3"
           }`}
         >
-          <Link
-            to="/E-Commerce-Website-React-Hooks/sign-in"
-            className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
-          >
-            <FaUserCircle className="fs-3 mb-1 mb-lg-0" />
-            <p className="fw-bold d-block d-lg-none">
-              {lang === "Eng" ? "Login" : "تسجيل الدخول"}
-            </p>
-            <p className="fw-bold d-none d-lg-block">
-              {lang === "Eng" ? "Login" : "الدخول"}
-            </p>
-          </Link>
+          {!localStorage.getItem("currentUser") ? (
+            <Link
+              to="/E-Commerce-Website-React-Hooks/sign-in"
+              className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
+            >
+              <FaUserCircle className="fs-3 mb-1 mb-lg-0" />
+              <p className="fw-bold d-block d-lg-none">
+                {lang === "Eng" ? "Login" : "تسجيل الدخول"}
+              </p>
+              <p className="fw-bold d-none d-lg-block">
+                {lang === "Eng" ? "Login" : "الدخول"}
+              </p>
+            </Link>
+          ) : (
+            <Link
+              to="/E-Commerce-Website-React-Hooks/account"
+              className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
+            >
+              <FaUserCircle className="fs-3 mb-1 mb-lg-0" />
+              <p className="fw-bold d-block d-lg-none">
+                {lang === "Eng" ? "Profile" : "الملف الشخصى"}
+              </p>
+              <p className="fw-bold d-none d-lg-block">
+                {lang === "Eng" ? "Profile" : "ملفاتى"}
+              </p>
+            </Link>
+          )}
         </div>
         <div
           className={`sign-in ${
             lang === "Eng" ? "me-lg-2 me-xl-3" : "ms-lg-2 ms-xl-3"
           }`}
         >
-          <Link
-            to="/E-Commerce-Website-React-Hooks/register"
-            className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
-          >
-            <FaUserEdit className="fs-3 mb-1 mb-lg-0" />
-            <p className="fw-bold">{lang === "Eng" ? "Sign Up" : "الاشتراك"}</p>
-          </Link>
+          {!localStorage.getItem("currentUser") ? (
+            <Link
+              to="/E-Commerce-Website-React-Hooks/register"
+              className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
+            >
+              <FaUserEdit className="fs-3 mb-1 mb-lg-0" />
+              <p className="fw-bold">
+                {lang === "Eng" ? "Sign Up" : "الاشتراك"}
+              </p>
+            </Link>
+          ) : (
+            <a
+              href="/E-Commerce-Website-React-Hooks/sign-out"
+              className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
+              onClick={() => {
+                localStorage.removeItem("currentUser");
+              }}
+            >
+              {lang === "Eng" ? (
+                <RiLogoutCircleRLine className="fs-3 mb-1 mb-lg-0" />
+              ) : (
+                <RiLogoutCircleLine className="fs-3 mb-1 mb-lg-0" />
+              )}
+              <p className="fw-bold d-block d-lg-none">
+                {lang === "Eng" ? "Sign Out" : "تسجيل الخروج"}
+              </p>
+              <p className="fw-bold d-none d-lg-block">
+                {lang === "Eng" ? "Sign Out" : "الخروج"}
+              </p>
+            </a>
+          )}
         </div>
         <div
           className={`sign-in ${
@@ -81,7 +121,7 @@ function Icons({ removeProductFromCart }) {
             )}
             {wishlistProducts.length !== 0 && (
               <span
-                style={lang === "Eng" ? { right: "8px" } : { left: "8px" }}
+                style={lang === "Eng" ? { right: "5px" } : { left: "5px" }}
                 className="changed fw-bold position-absolute d-flex justify-content-center align-items-center rounded-circle text-light"
               >
                 {wishlistProducts.length}

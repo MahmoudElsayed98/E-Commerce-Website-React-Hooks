@@ -22,7 +22,7 @@ function Compare({ removeProductFromComparison, addToCart }) {
           <>
             {compareProducts.length === 0 ? (
               <span className="w-100 cart-info d-block position-absolute top-50 start-50">
-                <p className="mb-0 text-center">
+                <p className="mb-0 text-center para">
                   {lang === "Eng"
                     ? "No Products To Be Compared Currently!"
                     : "لا توجد منتجات للمقارنة حالياً"}
@@ -31,7 +31,7 @@ function Compare({ removeProductFromComparison, addToCart }) {
                   to="/E-Commerce-Website-React-Hooks/products"
                   className="text-decoration-none"
                 >
-                  <button className="btn btn-lg btn-primary d-block mx-auto mt-2">
+                  <button className="btn btn-lg btn-primary btn-main d-block mx-auto mt-2">
                     {lang === "Eng" ? "GO SHOPPING NOW" : "الذهاب للتسوق الآن"}
                   </button>
                 </Link>
