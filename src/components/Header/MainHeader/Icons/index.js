@@ -84,11 +84,12 @@ function Icons({ removeProductFromCart }) {
               </p>
             </Link>
           ) : (
-            <a
-              href="/E-Commerce-Website-React-Hooks/sign-out"
+            <Link
+              to="/E-Commerce-Website-React-Hooks/sign-out"
               className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
               onClick={() => {
                 localStorage.removeItem("currentUser");
+                window.location.reload();
               }}
             >
               {lang === "Eng" ? (
@@ -102,7 +103,7 @@ function Icons({ removeProductFromCart }) {
               <p className="fw-bold d-none d-lg-block">
                 {lang === "Eng" ? "Sign Out" : "الخروج"}
               </p>
-            </a>
+            </Link>
           )}
         </div>
         <div
