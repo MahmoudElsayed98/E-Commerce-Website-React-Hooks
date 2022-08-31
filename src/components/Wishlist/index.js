@@ -24,7 +24,7 @@ function Wishlist({ removeProductFromWishlist }) {
             <Link to="/E-Commerce-Website-React-Hooks/register">
               create an account
             </Link>{" "}
-            to save products to your wishlist.
+            to show your wishlist products.
           </p>
         </SignIn>
       ) : (

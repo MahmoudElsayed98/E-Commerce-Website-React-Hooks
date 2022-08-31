@@ -64,7 +64,7 @@ function SignIn({ lang, children }) {
     setPassword("");
   };
   return (
-    <div className="login">
+    <div className="login position-relative">
       <div className="container d-flex flex-column justify-content-center align-items-center h-100">
         {children}
         <div className="login-form my-4 py-4 rounded d-flex flex-column align-items-center">

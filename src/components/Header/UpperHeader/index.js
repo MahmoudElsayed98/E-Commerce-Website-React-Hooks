@@ -16,7 +16,7 @@ function UpperHeader() {
   const lang = useContext(LanguageContext);
   return (
     <nav className="links">
-      <div className="container px-2 p-1 links position-relative d-flex justify-content-between">
+      <div className="container px-2 p-1 links position-relative d-flex justify-content-between align-items-center">
         <div className="nav-links d-flex">
           <NavLink
             to="/E-Commerce-Website-React-Hooks/"
@@ -78,7 +78,7 @@ function UpperHeader() {
             <img
               src={lang === "Eng" ? englishLogo : arabicLogo}
               alt={lang === "Eng" ? "English Logo" : "Arabic Logo"}
-              className="mx-2"
+              className="d-block mx-2"
             />
             <p className="mb-0">{lang === "Eng" ? "EN" : "ع"}</p>
           </Dropdown.Toggle>

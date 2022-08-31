@@ -23,6 +23,7 @@ import "./App.css";
 import Compare from "./components/Compare";
 import Account from "./components/Account";
 import SignOut from "./components/SignOut";
+import Password from "./components/Password";
 
 export const CartProductsContext = createContext();
 export const WishlistProductsContext = createContext();
@@ -397,6 +398,17 @@ function App() {
                                 }
                               />
                               <Route
+                                path="/E-Commerce-Website-React-Hooks/account/cart"
+                                element={
+                                  <Cart
+                                    removeProductFromCart={
+                                      removeProductFromCart
+                                    }
+                                    deliveryCost={deliveryCost}
+                                  />
+                                }
+                              />
+                              <Route
                                 path="/E-Commerce-Website-React-Hooks/products"
                                 element={<ProductsHeader />}
                               >
@@ -519,6 +531,16 @@ function App() {
                                 }
                               />
                               <Route
+                                path="/E-Commerce-Website-React-Hooks/account/wishlist"
+                                element={
+                                  <Wishlist
+                                    removeProductFromWishlist={
+                                      removeProductFromWishlist
+                                    }
+                                  />
+                                }
+                              />
+                              <Route
                                 path="/E-Commerce-Website-React-Hooks/compare"
                                 element={
                                   <Compare
@@ -528,6 +550,21 @@ function App() {
                                     addToCart={addToCart}
                                   />
                                 }
+                              />
+                              <Route
+                                path="/E-Commerce-Website-React-Hooks/account/compare"
+                                element={
+                                  <Compare
+                                    removeProductFromComparison={
+                                      removeProductFromComparison
+                                    }
+                                    addToCart={addToCart}
+                                  />
+                                }
+                              />
+                              <Route
+                                path="/E-Commerce-Website-React-Hooks/account/password"
+                                element={<Password lang={lang} />}
                               />
                               <Route
                                 path="/E-Commerce-Website-React-Hooks/account/"

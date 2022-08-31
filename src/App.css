@@ -8,7 +8,7 @@
 }
 @media only screen and (max-width: 480px) {
   .Toastify__toast-container {
-    width: calc(100% - 32px);
+    width: calc(100% - var(--upperHeaderHeight));
     right: 1em;
     top: 1em;
     left: auto;

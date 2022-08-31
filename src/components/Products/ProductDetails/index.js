@@ -44,7 +44,7 @@ function ProductDetails({
     }
   }, [id]);
   return (
-    <div className="product-details py-4 py-lg-0 d-flex d-lg-block align-items-center">
+    <div className="product-details position-relative py-4 py-lg-0 d-flex d-lg-block align-items-center">
       <div className="container position-relative">
         <div className="row justify-content-center align-items-center py-lg-4">
           {!productsDetailsLoading ? (

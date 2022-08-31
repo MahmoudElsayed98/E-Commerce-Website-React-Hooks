@@ -1,12 +1,17 @@
 .links {
-  height: 32px;
+  height: var(--upperHeaderHeight);
 }
 .links a,
 .links span,
 .links .delivery {
-  font-size: 16px;
   color: var(--secondaryColor);
   transition: var(--mainDuration);
+}
+.links button#dropdown-basic p,
+.links a,
+.links span,
+.links .delivery {
+  font-size: 17px;
 }
 .links a:hover,
 .links .delivery:hover,
@@ -14,9 +19,6 @@
   color: var(--mainColor);
 }
 
-.delivery svg {
-  font-size: 20px;
-}
 .dropdown .dropdown-menu {
   min-width: auto;
   padding: 0;

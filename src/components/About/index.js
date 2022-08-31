@@ -4,7 +4,7 @@ import "./index.css";
 
 function About({ lang }) {
   return (
-    <div className="about py-4">
+    <div className="about position-relative py-4">
       <div className="container d-flex flex-column justify-content-center align-items-center">
         <h1 className="fw-bold mt-4 mb-0 text-center text-uppercase d-flex align-items-center">
           <GoPrimitiveDot size="1.75rem" className="me-2" />

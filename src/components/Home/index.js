@@ -9,9 +9,9 @@ import { Link } from "react-router-dom";
 
 function Home({ lang }) {
   return (
-    <div className="home d-flex justify-content-center align-items-center d-lg-block py-4 py-lg-0">
+    <div className="home position-relative d-flex justify-content-center align-items-center d-lg-block py-4 py-lg-0">
       <div className="container">
-        <div className="row align-items-center flex-column flex-lg-row py-lg-4">
+        <div className="row align-items-center justify-content-center flex-column flex-lg-row py-lg-4">
           <div className="position-relative col-10 col-md-8 col-lg-6 mb-1 mb-lg-0">
             <img src={image} className="img-fluid" alt="Welcome Img" />
           </div>

@@ -1,19 +1,5 @@
 .not-found {
   color: var(--mainColor);
-  min-height: calc(100vh - (32px + 81.47px + 57px));
-  position: relative;
   z-index: 0;
   background-color: #f8f9fa;
-}
-.not-found::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url("/src/assets/images/istockphoto-1096460950-612x612.jpg");
-  /* background-size: cover; */
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0.03;
 }

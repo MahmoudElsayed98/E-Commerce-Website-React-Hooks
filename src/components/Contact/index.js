@@ -18,7 +18,7 @@ function Contact({ lang }) {
     setMessage("");
   };
   return (
-    <div className="contact py-4">
+    <div className="contact py-4 position-relative">
       <div className="container d-flex flex-column align-items-center">
         <h1 className="fw-bold pt-4 pb-md-3 mb-0 text-center text-uppercase">
           {lang === "Eng" ? "Contact Us" : "تواصل معنا"}

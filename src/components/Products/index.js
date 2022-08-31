@@ -47,7 +47,7 @@ function Products({
   // };
   return (
     <>
-      <div className="products">
+      <div className="products position-relative">
         <div className="container">
           <div className="content d-flex w-100 flex-wrap justify-content-center justify-content-md-start">
             {productsLoading ? (
