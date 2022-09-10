@@ -19,42 +19,42 @@ function UpperHeader() {
       <div className="container px-2 p-1 links position-relative d-flex justify-content-between align-items-center">
         <div className="nav-links d-flex">
           <NavLink
-            to="/E-Commerce-Website-React-Hooks/"
+            to="/Exclsv/"
             className="text-decoration-none d-flex justify-content-center align-items-center me-1"
           >
             <FaHome className="mx-1" />
             {lang === "Eng" ? "Home" : "الرئيسية"}
           </NavLink>
           <NavLink
-            to="/E-Commerce-Website-React-Hooks/products"
+            to="/Exclsv/products"
             className="text-decoration-none d-flex justify-content-center align-items-center me-1"
           >
             <IoStorefrontSharp className="mx-1" />
             {lang === "Eng" ? "Shop" : "المتجر"}
           </NavLink>
           <NavLink
-            to="/E-Commerce-Website-React-Hooks/about"
+            to="/Exclsv/about"
             className="text-decoration-none d-flex justify-content-center align-items-center me-1 d-md-none"
           >
             <BsExclamationCircleFill className="mx-1" />
             {lang === "Eng" ? "About" : "عنا"}
           </NavLink>
           <NavLink
-            to="/E-Commerce-Website-React-Hooks/about"
+            to="/Exclsv/about"
             className="text-decoration-none d-flex justify-content-center align-items-center me-1 d-none d-md-flex"
           >
             <BsExclamationCircleFill className="mx-1" />
             {lang === "Eng" ? "About Us" : "نبذة عنا"}
           </NavLink>
           <NavLink
-            to="/E-Commerce-Website-React-Hooks/contact"
+            to="/Exclsv/contact"
             className="text-decoration-none d-flex justify-content-center align-items-center me-1 d-md-none"
           >
             <FaEnvelope className="mx-1" />
             {lang === "Eng" ? "Contact" : "تواصل معنا"}
           </NavLink>
           <NavLink
-            to="/E-Commerce-Website-React-Hooks/contact"
+            to="/Exclsv/contact"
             className="text-decoration-none d-flex justify-content-center align-items-center me-1 d-none d-md-flex"
           >
             <FaEnvelope className="mx-1" />

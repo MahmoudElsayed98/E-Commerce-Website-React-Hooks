@@ -8,10 +8,7 @@ function NotFound() {
       <p className="mb-0 text-center para">
         Unfortunately, this page doesn't exist.
       </p>
-      <Link
-        to="/E-Commerce-Website-React-Hooks/"
-        className="d-block w-100 text-center"
-      >
+      <Link to="/Exclsv/" className="d-block w-100 text-center">
         <button className="btn btn-primary btn-lg btn-main mt-2 text-uppercase w-25">
           Continue
         </button>

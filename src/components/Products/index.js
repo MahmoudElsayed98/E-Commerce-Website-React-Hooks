@@ -28,7 +28,7 @@ function Products({
       setProductsLoading(false);
     }
     axios
-      .get(`https://fakestoreapi.com/products/${category}`)
+      .get(`https://fake-e-commerce-api.onrender.com/product${category}`)
       .then((res) => {
         // if (mounted) {
         setProducts(res.data);
@@ -55,7 +55,7 @@ function Products({
                 return (
                   <ProductCard
                     product={p}
-                    key={p.id}
+                    key={p._id}
                     addToCart={addToCart}
                     addToWishlist={addToWishlist}
                     addToComparison={addToComparison}

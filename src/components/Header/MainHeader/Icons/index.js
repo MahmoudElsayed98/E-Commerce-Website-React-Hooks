@@ -15,11 +15,13 @@ import {
   LanguageContext,
   CompareProductsContext,
   CartProductsTotalNumberContext,
+  UserTokenContext,
   // IsCompareProductsChangedContext,
 } from "../../../../App";
 import { Link } from "react-router-dom";
 
 function Icons({ removeProductFromCart }) {
+  const token = useContext(UserTokenContext);
   const cartProducts = useContext(CartProductsContext);
   const cartProductsTotalSalary = useContext(CartProductsTotalSalaryContext);
   // const isCartProductsChanged = useContext(IsCartProductsChangedContext);
@@ -40,9 +42,9 @@ function Icons({ removeProductFromCart }) {
             lang === "Eng" ? "me-lg-2 me-xl-3" : "ms-lg-2 ms-xl-3"
           }`}
         >
-          {!localStorage.getItem("currentUser") ? (
+          {!token ? (
             <Link
-              to="/E-Commerce-Website-React-Hooks/sign-in"
+              to="/Exclsv/sign-in"
               className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
             >
               <FaUserCircle className="fs-3 mb-1 mb-lg-0" />
@@ -55,7 +57,7 @@ function Icons({ removeProductFromCart }) {
             </Link>
           ) : (
             <Link
-              to="/E-Commerce-Website-React-Hooks/account"
+              to="/Exclsv/account"
               className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
             >
               <FaUserCircle className="fs-3 mb-1 mb-lg-0" />
@@ -73,9 +75,9 @@ function Icons({ removeProductFromCart }) {
             lang === "Eng" ? "me-lg-2 me-xl-3" : "ms-lg-2 ms-xl-3"
           }`}
         >
-          {!localStorage.getItem("currentUser") ? (
+          {!token ? (
             <Link
-              to="/E-Commerce-Website-React-Hooks/register"
+              to="/Exclsv/register"
               className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
             >
               <FaUserEdit className="fs-3 mb-1 mb-lg-0" />
@@ -85,10 +87,10 @@ function Icons({ removeProductFromCart }) {
             </Link>
           ) : (
             <a
-              href="/E-Commerce-Website-React-Hooks/sign-out"
+              href="/Exclsv/sign-out"
               className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
               onClick={() => {
-                localStorage.removeItem("currentUser");
+                localStorage.removeItem("userToken");
               }}
             >
               {lang === "Eng" ? (
@@ -111,7 +113,7 @@ function Icons({ removeProductFromCart }) {
           }`}
         >
           <Link
-            to="/E-Commerce-Website-React-Hooks/wishlist"
+            to="/Exclsv/wishlist"
             className="position-relative text-decoration-none d-flex flex-column justify-content-center align-items-center"
           >
             {wishlistProducts.length === 0 ? (
@@ -132,7 +134,7 @@ function Icons({ removeProductFromCart }) {
         </div>
         <div className="sign-in">
           <Link
-            to="/E-Commerce-Website-React-Hooks/compare"
+            to="/Exclsv/compare"
             className="position-relative text-decoration-none d-flex flex-column justify-content-center align-items-center"
           >
             <BiGitCompare className="fs-3 mb-1 mb-lg-0" />
@@ -153,7 +155,7 @@ function Icons({ removeProductFromCart }) {
         role="button"
       >
         <Link
-          to="/E-Commerce-Website-React-Hooks/cart"
+          to="/Exclsv/cart"
           className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
         >
           <span className="cart-detail position-relative d-flex justify-content-center align-items-center">
@@ -196,26 +198,22 @@ function Icons({ removeProductFromCart }) {
               cartProducts.map((e) => {
                 return (
                   <div
-                    key={e.id}
+                    key={e._id}
                     className="cart-item py-2 d-flex align-items-center"
                   >
                     <Link
-                      to={`/E-Commerce-Website-React-Hooks/products/${e.id}`}
+                      to={`/Exclsv/products/${e._id}`}
                       className="d-flex align-items-center justify-content-center"
                     >
-                      <div className="image w-50 p-2 rounded">
-                        <img
-                          src={e.image}
-                          className="img-fluid"
-                          alt={e.title}
-                        />
+                      <div className="image p-2 rounded">
+                        <img src={e.image} className="img-fluid" alt={e.name} />
                       </div>
                     </Link>
                     <Link
-                      to={`/E-Commerce-Website-React-Hooks/products/${e.id}`}
+                      to={`/Exclsv/products/${e._id}`}
                       className="text-light d-flex align-items-center title"
                     >
-                      {e.title}
+                      {e.name}
                     </Link>
                     <div className="cart-details d-flex align-items-center justify-content-evenly">
                       <p className="text-center mb-0">x {e.qty}</p>
@@ -245,12 +243,12 @@ function Icons({ removeProductFromCart }) {
                 </p>
               </div>
               <div className="buttons rounded-bottom pb-3">
-                <Link to="/E-Commerce-Website-React-Hooks/cart">
+                <Link to="/Exclsv/cart">
                   <button className="btn btn-light text-uppercase me-2 fw-bold">
                     {lang === "Eng" ? "view cart" : "سلة التسوق"}
                   </button>
                 </Link>
-                <Link to="/E-Commerce-Website-React-Hooks/checkout">
+                <Link to="/Exclsv/checkout">
                   <button className="btn btn-light text-uppercase me-2 fw-bold">
                     {lang === "Eng" ? "Checkout" : "الدفع"}
                   </button>

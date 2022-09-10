@@ -24,7 +24,7 @@ function Home({ lang }) {
             </h1>
             <Link
               className="btn btn-lg btn-primary btn-main mt-2 mt-lg-3 text-uppercase mx-auto d-flex justify-content-center align-items-center ok"
-              to="/E-Commerce-Website-React-Hooks/products"
+              to="/Exclsv/products"
             >
               {lang === "Eng" ? "Shop Now" : "التسوق الان"}
               {lang === "Eng" ? (

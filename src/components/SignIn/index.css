@@ -93,3 +93,9 @@
 .login form .socials {
   margin-top: 35px;
 }
+.was-validated .form-check-input:valid ~ .form-check-label {
+  color: var(--mainColor);
+}
+.was-validated .form-check-input:valid {
+  border-color: var(--mainColor);
+}

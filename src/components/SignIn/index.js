@@ -1,67 +1,51 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Form, Button } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 import { IconContext } from "react-icons";
 import { IoLogoFacebook } from "react-icons/io5";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AiFillGoogleCircle, AiFillTwitterCircle } from "react-icons/ai";
 import "./index.css";
 import { Link } from "react-router-dom";
 
-function SignIn({ lang, children }) {
+function SignIn({ lang, children, setToken }) {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [passWord, setPassWord] = useState("");
+  const [passWordVisability, setPassWordVisability] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!localStorage.getItem("users")) {
-      alert("Invalid Email Address Or Password!");
-    } else {
-      JSON.parse(localStorage.getItem("users")).forEach((u) => {
-        if (email === u.email && password === u.password) {
-          localStorage.setItem(
-            "currentUser",
-            JSON.stringify({ email, password })
-          );
+    axios
+      .post(
+        "https://fake-e-commerce-api.onrender.com/login",
+        {
+          email: email,
+          password: passWord,
+        },
+        {
+          withCredentials: true,
         }
-        if (email === u.email) {
-          localStorage.setItem("currentUserEmail", u.email);
-        } else {
-          localStorage.removeItem("currentUserEmail");
-        }
-        if (password === u.password) {
-          localStorage.setItem("currentUserPassword", u.password);
-        } else {
-          localStorage.removeItem("currentUserPassword");
-        }
+      )
+      .then((res) => {
+        console.log(res);
+        setToken(res.data.token);
+        localStorage.setItem("userToken", res.data.token);
+        navigate("/Exclsv/");
+      })
+      .catch((error) => {
+        setError(error.response.data);
       });
-      if (!localStorage.getItem("currentUser")) {
-        if (
-          !localStorage.getItem("currentUserEmail") &&
-          !localStorage.getItem("currentUserPassword")
-        ) {
-          alert("Invalid Email Address Or Password!");
-        } else {
-          if (!localStorage.getItem("currentUserEmail")) {
-            alert("Invalid Email Address!");
-          }
-          if (!localStorage.getItem("currentUserPassword")) {
-            alert("Invalid Password!");
-          }
-        }
-      } else {
-        if (!localStorage.getItem("isInWishlist")) {
-          navigate("/E-Commerce-Website-React-Hooks/");
-        }
-        window.location.reload();
-      }
-    }
-    // resetForm();
   };
 
   const resetForm = () => {
     setEmail("");
-    setPassword("");
+    setPassWord("");
+    setError("");
   };
   return (
     <div className="login position-relative">
@@ -71,19 +55,19 @@ function SignIn({ lang, children }) {
           <h1 className="fw-bold mb-0 text-center text-uppercase mb-3">
             {lang === "Eng" ? "login" : "تسجيل الدخول"}
           </h1>
-          <Form id="login-form" onSubmit={handleSubmit} method="POST">
+          <Form id="login-form" onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formSignInEmail">
               <Form.Label>
                 {lang === "Eng" ? "Email Address" : "البريد الالكترونى"}
               </Form.Label>
               <Form.Control
+                required
                 type="email"
-                aria-describedby="emailHelp"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={`${
                   lang === "Eng"
-                    ? "Enter Email Address"
+                    ? "Enter email address"
                     : "ادخل البريد الالكترونى"
                 }`}
                 className="input"
@@ -93,23 +77,44 @@ function SignIn({ lang, children }) {
               <Form.Label>
                 {lang === "Eng" ? "Password" : "كلمة المرور"}
               </Form.Label>
-              <Form.Control
-                type="password"
-                placeholder={`${
-                  lang === "Eng" ? "Enter password" : "ادخل كلمة المرور"
-                }`}
-                value={password}
-                className="input"
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <InputGroup>
+                <Form.Control
+                  required
+                  type={`${passWordVisability ? "text" : "password"}`}
+                  placeholder={`${
+                    lang === "Eng" ? "Enter password" : "ادخل كلمة المرور"
+                  }`}
+                  value={passWord}
+                  className="input"
+                  onChange={(e) => setPassWord(e.target.value)}
+                />
+                <InputGroup.Text id="inputGroupPrepend">
+                  {passWordVisability ? (
+                    <FaEyeSlash
+                      onClick={() => setPassWordVisability(false)}
+                      role="button"
+                    />
+                  ) : (
+                    <FaEye
+                      onClick={() => setPassWordVisability(true)}
+                      role="button"
+                    />
+                  )}
+                </InputGroup.Text>
+              </InputGroup>
+              {error && <div className="mt-2 text-danger">{error}</div>}
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formSignInCheck">
+            {/* <Form.Group className="mb-3" controlId="formSignInCheck">
               <Form.Check
                 type="checkbox"
                 label={`${lang === "Eng" ? "Remember me? " : "تذكرنى؟"}`}
               />
-            </Form.Group>
-            <Button variant="primary" type="submit" className="w-100">
+            </Form.Group> */}
+            <Button
+              variant="primary"
+              type="submit"
+              className={`w-100 ${!error && "mt-1"}`}
+            >
               {lang === "Eng" ? "LOGIN" : "تسجيل الدخول"}
             </Button>
             <Form.Text className="d-flex justify-content-end">
@@ -141,7 +146,7 @@ function SignIn({ lang, children }) {
             </div>
             <div className="go-to-sign-up text-center mt-3">
               {lang === "Eng" ? "Need an account? " : "مستخدم جديد؟ "}
-              <Link to="/E-Commerce-Website-React-Hooks/register">
+              <Link to="/Exclsv/register">
                 {lang === "Eng" ? "SIGN UP" : "تسجيل الاشتراك"}
               </Link>
             </div>

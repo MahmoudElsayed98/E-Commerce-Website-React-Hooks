@@ -29,21 +29,21 @@ function ProductCard({ product, addToCart, addToWishlist, addToComparison }) {
         className="comparison position-absolute svg"
         role="button"
         onClick={() => {
-          !localStorage.getItem(`compareProduct${product.id}`)
+          !localStorage.getItem(`compareProduct${product._id}`)
             ? addToComparison(product)
             : removeProductFromComparison(product);
         }}
         title={`${
           lang !== "Eng"
-            ? !localStorage.getItem(`compareProduct${product.id}`)
+            ? !localStorage.getItem(`compareProduct${product._id}`)
               ? "أضف المنتج إلى المقارنة"
               : "حذف المنتج من المقارنة"
-            : !localStorage.getItem(`compareProduct${product.id}`)
+            : !localStorage.getItem(`compareProduct${product._id}`)
             ? "Add Product To Comparison"
             : "Remove Product From Comparison"
         }`}
       />
-      {!localStorage.getItem(`wishlistProduct${product.id}`) ? (
+      {!localStorage.getItem(`wishlistProduct${product._id}`) ? (
         <AiOutlineHeart
           className="position-absolute heart svg"
           role="button"
@@ -70,69 +70,9 @@ function ProductCard({ product, addToCart, addToWishlist, addToComparison }) {
           }`}
         />
       )}
-
-      {/* {wishlistProducts.length === 0
-                      ?
-                      !product.isAddedToWishlist &&
-                       (
-                          <AiOutlineHeart
-                            className="position-absolute"
-                            role="button"
-                            onClick={() => {
-                              addToWishlist(product);
-                            }}
-                            title={`${
-                              lang !== "Eng"
-                                ? "إضافة المنتج إلى المفضلة"
-                                : "Add Product To Wishlist"
-                            }`}
-                          />
-                        )
-                      : wishlistProducts.map((p) => {
-                          return p.id === product.id ? (
-                            <AiFillHeart
-                              key={p.id}
-                              className="position-absolute fill-heart"
-                              role="button"
-                              onClick={() => {
-                                removeProductFromWishlist(product);
-                              }}
-                              title={`${
-                                lang !== "Eng"
-                                  ? "حذف المنتج من المفضلة"
-                                  : "Remove Product From Wishlist"
-                              }`}
-                            />
-                          ) : (
-                            !product.isAddedToWishlist &&
-                              Object.values(this.r.current.children).map(
-                                (child) => {
-                                  if (child.tagName === "svg") {
-                                    child.classList.add("d-none");
-                                    return (
-                                      <AiOutlineHeart
-                                        key={p.id}
-                                        className="position-absolute"
-                                        role="button"
-                                        onClick={() => {
-                                          addToWishlist(product);
-                                        }}
-                                        title={`${
-                                          lang !== "Eng"
-                                            ? "إضافة المنتج إلى المفضلة"
-                                            : "Add Product To Wishlist"
-                                        }`}
-                                      />
-                                    );
-                                  }
-                                  return "";
-                                }
-                              )
-                          );
-                        })} */}
       <div className="image rounded-top">
         <Link
-          to={`/E-Commerce-Website-React-Hooks/products/${product.id}`}
+          to={`/Exclsv/products/${product._id}`}
           className="h-100 d-flex justify-content-center align-items-center"
         >
           <img
@@ -145,10 +85,10 @@ function ProductCard({ product, addToCart, addToWishlist, addToComparison }) {
       <div className="text p-2 text-center bg-light">
         <h6>
           <Link
-            to={`/E-Commerce-Website-React-Hooks/products/${product.id}`}
+            to={`/Exclsv/products/${product._id}`}
             className="d-flex justify-content-center align-items-center text-decoration-none fw-bold"
           >
-            {product.title}
+            {product.name}
           </Link>
         </h6>
         <p className="text-capitalize mb-0 d-flex flex-column justify-content-center align-items-center">

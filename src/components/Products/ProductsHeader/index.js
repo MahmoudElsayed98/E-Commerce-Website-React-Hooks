@@ -13,26 +13,51 @@ function ProductsHeader() {
             {lang === "Eng" ? "All Products" : "كل المنتجات"}
           </NavLink>
 
-          <NavLink
-            to="men's%20clothing"
-            className="text-light text-decoration-none"
-          >
-            {lang === "Eng" ? "Men's clothing" : "الملابس الرجالى"}
+          <NavLink to="Fashion" className="text-light text-decoration-none">
+            {lang === "Eng" ? "Fashion" : "الموضة"}
+          </NavLink>
+          <NavLink to="Smartphone" className="text-light text-decoration-none">
+            {lang === "Eng" ? "Smartphone" : "الهاتف الذكى"}
+          </NavLink>
+          <NavLink to="Laptop" className="text-light text-decoration-none">
+            {lang === "Eng" ? "Laptop" : "لابتوب"}
+          </NavLink>
+          <NavLink to="Camera" className="text-light text-decoration-none">
+            {lang === "Eng" ? "Camera" : "الكاميرا"}
           </NavLink>
 
-          <NavLink
-            to="women's%20clothing"
-            className="text-light text-decoration-none"
-          >
-            {lang === "Eng" ? "Woman's clothing" : "الملابس الحريمى"}
+          <NavLink to="Watches" className="text-light text-decoration-none">
+            {lang === "Eng" ? "Watches" : "الساعات"}
           </NavLink>
-
-          <NavLink to="jewelery" className="text-light text-decoration-none">
-            {lang === "Eng" ? "Jewelery" : "المجوهرات"}
-          </NavLink>
-
-          <NavLink to="electronics" className="text-light text-decoration-none">
+          <NavLink to="Electronics" className="text-light text-decoration-none">
             {lang === "Eng" ? "Electronics" : "الالكترونيات"}
+          </NavLink>
+          <NavLink to="TV" className="text-light text-decoration-none">
+            {lang === "Eng" ? "TV" : "التلفاز"}
+          </NavLink>
+          <NavLink to="Accessories" className="text-light text-decoration-none">
+            {lang === "Eng" ? "Accessories" : "اكسسوارات"}
+          </NavLink>
+          <NavLink to="Food" className="text-light text-decoration-none">
+            {lang === "Eng" ? "Food" : "الطعام"}
+          </NavLink>
+          <NavLink to="Health&GYM" className="text-light text-decoration-none">
+            {lang === "Eng" ? "Health&GYM" : "الصحة والرياضة"}
+          </NavLink>
+          <NavLink to="Shoes" className="text-light text-decoration-none">
+            {lang === "Eng" ? "Shoes" : "الاحذية"}
+          </NavLink>
+          <NavLink to="Jewellery" className="text-light text-decoration-none">
+            {lang === "Eng" ? "Jewellery" : "المجوهرات"}
+          </NavLink>
+          <NavLink to="Motors" className="text-light text-decoration-none">
+            {lang === "Eng" ? "Motors" : "الموتوسيكلات"}
+          </NavLink>
+          <NavLink to="Bags" className="text-light text-decoration-none">
+            {lang === "Eng" ? "Bags" : "الحقائب"}
+          </NavLink>
+          <NavLink to="Home" className="text-light text-decoration-none">
+            {lang === "Eng" ? "Home" : "الادوات المنزلية"}
           </NavLink>
         </nav>
       </div>

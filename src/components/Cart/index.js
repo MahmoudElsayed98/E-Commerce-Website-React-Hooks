@@ -32,10 +32,7 @@ function Cart({ removeProductFromCart, deliveryCost }) {
                     ? "Your shopping cart is currently empty!"
                     : "سلة التسوق الخاصة بك فارغة حالياً!"}
                 </p>
-                <Link
-                  to="/E-Commerce-Website-React-Hooks/products"
-                  className="text-decoration-none"
-                >
+                <Link to="/Exclsv/products" className="text-decoration-none">
                   <button className="btn btn-lg btn-primary btn-main d-block mx-auto mt-2">
                     {lang === "Eng" ? "GO SHOPPING NOW" : "الذهاب للتسوق الآن"}
                   </button>
@@ -44,22 +41,22 @@ function Cart({ removeProductFromCart, deliveryCost }) {
             ) : (
               cartProducts.map((e) => (
                 <div
-                  key={e.id}
+                  key={e._id}
                   className="cart-item border rounded py-2 d-flex align-items-center mb-3"
                 >
                   <Link
-                    to={`/E-Commerce-Website-React-Hooks/products/${e.id}`}
+                    to={`/Exclsv/products/${e._id}`}
                     className="d-flex align-items-center justify-content-center"
                   >
                     <div className="image p-2 rounded">
-                      <img src={e.image} className="img-fluid" alt={e.title} />
+                      <img src={e.image} className="img-fluid" alt={e.name} />
                     </div>
                   </Link>
                   <Link
-                    to={`/E-Commerce-Website-React-Hooks/products/${e.id}`}
+                    to={`/Exclsv/products/${e._id}`}
                     className="d-flex align-items-center title text-dark text-center"
                   >
-                    {e.title}
+                    {e.name}
                   </Link>
                   <div className="cart-details d-flex align-items-center justify-content-evenly">
                     <p className="text-center mb-0">x {e.qty}</p>
@@ -104,7 +101,7 @@ function Cart({ removeProductFromCart, deliveryCost }) {
                     ${(CartProductsTotalSalary + deliveryCost).toFixed(2)}
                   </p>
                 </div>
-                <Link to="/E-Commerce-Website-React-Hooks/checkout">
+                <Link to="/Exclsv/checkout">
                   <button className="btn btn-primary d-block w-100">
                     {lang === "Eng" ? "CHECKOUT" : "الدفع"}
                   </button>

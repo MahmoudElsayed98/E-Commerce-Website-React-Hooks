@@ -6,31 +6,49 @@ import { IoLogoFacebook } from "react-icons/io5";
 import { AiFillGoogleCircle, AiFillTwitterCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./index.css";
+import axios from "axios";
+import Password from "../Password";
 
 function Register({ lang }) {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [passWord, setPassWord] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
+    console.log(userName);
+    console.log(email);
+    console.log(passWord);
     e.preventDefault();
-    let users = localStorage.getItem("users")
-      ? JSON.parse(localStorage.getItem("users"))
-      : [];
-    users.push({ userName, email, password });
-    localStorage.setItem("users", JSON.stringify(users));
-    localStorage.setItem(
-      "currentUser",
-      JSON.stringify({ userName, email, password })
-    );
-    resetForm();
-    navigate("/E-Commerce-Website-React-Hooks/");
-    window.location.reload();
+    axios
+      .post("https://fake-e-commerce-api.onrender.com/signup", {
+        name: userName,
+        email: email,
+        password: passWord,
+      })
+      .then((res) => {
+        console.log("success", res);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+    // e.preventDefault();
+    // let users = localStorage.getItem("users")
+    //   ? JSON.parse(localStorage.getItem("users"))
+    //   : [];
+    // users.push({ userName, email, passWord });
+    // localStorage.setItem("users", JSON.stringify(users));
+    // localStorage.setItem(
+    //   "currentUser",
+    //   JSON.stringify({ userName, email, passWord })
+    // );
+    // resetForm();
+    // navigate("/Exclsv/");
+    // window.location.reload();
   };
   const resetForm = () => {
     setEmail("");
-    setPassword("");
+    setPassWord("");
     setUserName("");
   };
   return (
@@ -83,13 +101,13 @@ function Register({ lang }) {
               </Form.Label>
               <Form.Control
                 required
-                type="password"
+                type="passWord"
                 placeholder={`${
                   lang === "Eng" ? "Enter Password" : "ادخل كلمة المرور"
                 }`}
-                value={password}
+                value={passWord}
                 className="input"
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => setPassWord(e.target.value)}
               />
             </Form.Group>
             <Button variant="primary" type="submit" className="w-100 mb-3">
@@ -116,7 +134,7 @@ function Register({ lang }) {
             </div>
             <div className="go-to-sign-up text-center mt-3">
               {lang === "Eng" ? "Already a user? " : "مستخدم بالفعل؟ "}
-              <Link to="/E-Commerce-Website-React-Hooks/sign-in">
+              <Link to="/Exclsv/sign-in">
                 {lang === "Eng" ? "LOGIN" : "تسجيل الدخول"}
               </Link>
             </div>

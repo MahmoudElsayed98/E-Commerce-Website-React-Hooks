@@ -27,10 +27,7 @@ function Compare({ removeProductFromComparison, addToCart }) {
                     ? "No Products To Be Compared Currently!"
                     : "لا توجد منتجات للمقارنة حالياً"}
                 </p>
-                <Link
-                  to="/E-Commerce-Website-React-Hooks/products"
-                  className="text-decoration-none"
-                >
+                <Link to="/Exclsv/products" className="text-decoration-none">
                   <button className="btn btn-lg btn-primary btn-main d-block mx-auto mt-2">
                     {lang === "Eng" ? "GO SHOPPING NOW" : "الذهاب للتسوق الآن"}
                   </button>
@@ -38,22 +35,22 @@ function Compare({ removeProductFromComparison, addToCart }) {
               </span>
             ) : (
               // <div
-              //   key={e.id}
+              //   key={e._id}
               //   className="cart-item border rounded py-2 d-flex align-items-center mb-3"
               // >
               //   <Link
-              //     to={`/E-Commerce-Website-React-Hooks/products/${e.id}`}
+              //     to={`/Exclsv/products/${e._id}`}
               //     className="d-flex align-items-center justify-content-center"
               //   >
               //     <div className="image p-2 rounded">
-              //       <img src={e.image} className="img-fluid" alt={e.title} />
+              //       <img src={e.image} className="img-fluid" alt={e.name} />
               //     </div>
               //   </Link>
               //   <Link
-              //     to={`/E-Commerce-Website-React-Hooks/products/${e.id}`}
+              //     to={`/Exclsv/products/${e._id}`}
               //     className="d-flex align-items-center justify-content-center title text-dark text-center"
               //   >
-              //     {e.title}
+              //     {e.name}
               //   </Link>
               //   <div className="cart-details d-flex align-items-center justify-content-evenly">
               //     <p className="text-center mb-0">${e.price.toFixed(2)}</p>
@@ -86,11 +83,9 @@ function Compare({ removeProductFromComparison, addToCart }) {
                           {lang === "Eng" ? "Title" : "الإسم"}
                         </td>
                         {compareProducts.map((p) => (
-                          <td key={p.id} className="text-center">
-                            <Link
-                              to={`/E-Commerce-Website-React-Hooks/products/${p.id}`}
-                            >
-                              <strong>{p.title}</strong>
+                          <td key={p._id} className="text-center">
+                            <Link to={`/Exclsv/products/${p._id}`}>
+                              <strong>{p.name}</strong>
                             </Link>
                           </td>
                         ))}
@@ -100,13 +95,13 @@ function Compare({ removeProductFromComparison, addToCart }) {
                           {lang === "Eng" ? "Image" : "الصورة"}
                         </td>
                         {compareProducts.map((p) => (
-                          <td key={p.id} className="text-center">
+                          <td key={p._id} className="text-center">
                             <div className="content w-100 d-flex justify-content-center align-items-center">
                               <div className="image p-1 rounded">
                                 <img
                                   src={p.image}
-                                  alt={p.title}
-                                  title={p.title}
+                                  alt={p.name}
+                                  title={p.name}
                                   className="img-fluid"
                                 />
                               </div>
@@ -119,7 +114,7 @@ function Compare({ removeProductFromComparison, addToCart }) {
                           {lang === "Eng" ? "Price" : "السعر"}
                         </td>
                         {compareProducts.map((p) => (
-                          <td key={p.id} className="text-center">
+                          <td key={p._id} className="text-center">
                             ${p.price}
                           </td>
                         ))}
@@ -129,7 +124,7 @@ function Compare({ removeProductFromComparison, addToCart }) {
                           {lang === "Eng" ? "Description" : "الوصف"}
                         </td>
                         {compareProducts.map((p) => (
-                          <td key={p.id} className="text-center">
+                          <td key={p._id} className="text-center">
                             {p.description}
                           </td>
                         ))}
@@ -140,29 +135,29 @@ function Compare({ removeProductFromComparison, addToCart }) {
                         </td>
                         {compareProducts.map((p) => (
                           <td
-                            key={p.id}
+                            key={p._id}
                             className="text-center text-capitalize"
                           >
                             {p.category}
                           </td>
                         ))}
                       </tr>
-                      <tr className="compare-rating">
+                      {/* <tr className="compare-rating">
                         <td className="text-center">
                           {lang === "Eng" ? "Rating" : "التقييم"}
                         </td>
                         {compareProducts.map((p) => (
-                          <td key={p.id} className="text-center">
-                            {p.rating.rate}
+                          <td key={p._id} className="text-center">
+                            {p.rate.rating}
                           </td>
                         ))}
-                      </tr>
+                      </tr> */}
                     </tbody>
                     <tfoot>
                       <tr>
                         <td></td>
                         {compareProducts.map((p) => (
-                          <td className="out-of-stock text-center" key={p.id}>
+                          <td className="out-of-stock text-center" key={p._id}>
                             <div className="compare-buttons p-0">
                               <button
                                 className="btn btn-primary btn-main m-1"

@@ -35,10 +35,12 @@ function ProductDetails({
     if (productsDetailsLoading === true) {
       setProductsDetailsLoading(false);
     }
-    axios.get(`https://fakestoreapi.com/products/${id}`).then((res) => {
-      setProduct(res.data);
-      setProductsDetailsLoading(true);
-    });
+    axios
+      .get(`https://fake-e-commerce-api.onrender.com/product/${id}`)
+      .then((res) => {
+        setProduct(res.data);
+        setProductsDetailsLoading(true);
+      });
     if (id > 20) {
       setProductDetailsFetchingFailed(true);
     }
@@ -63,12 +65,12 @@ function ProductDetails({
               </p>
               <div className="left-side col-6 col-md-5 col-lg-4 me-lg-4">
                 <div className="image text-center">
-                  <img src={product.image} alt={product.title} />
+                  <img src={product.image} alt={product.name} />
                 </div>
               </div>
               <div className="right-side col-12 col-md-9 col-lg-7 text-center text-md-start ">
                 <h3 className="mb-2 mt-4 mt-lg-0 fw-bold d-flex justify-content-center justify-content-lg-start align-items-center text-center text-lg-start">
-                  {product.title}
+                  {product.name}
                 </h3>
                 <h4 className="mb-0 d-flex justify-content-center justify-content-lg-start align-items-center">
                   {"$"}
@@ -102,7 +104,7 @@ function ProductDetails({
                   >
                     {lang === "Eng" ? "Add To Cart" : "إضافة الى السلة"}
                   </button>
-                  {!localStorage.getItem(`wishlistProduct${product.id}`) ? (
+                  {!localStorage.getItem(`wishlistProduct${product._id}`) ? (
                     <AiOutlineHeart
                       className="heart svg mx-1"
                       role="button"
@@ -133,16 +135,16 @@ function ProductDetails({
                     className="comparison svg"
                     role="button"
                     onClick={() => {
-                      !localStorage.getItem(`compareProduct${product.id}`)
+                      !localStorage.getItem(`compareProduct${product._id}`)
                         ? addToComparison(product)
                         : removeProductFromComparison(product);
                     }}
                     title={`${
                       lang !== "Eng"
-                        ? !localStorage.getItem(`compareProduct${product.id}`)
+                        ? !localStorage.getItem(`compareProduct${product._id}`)
                           ? "أضف المنتج إلى المقارنة"
                           : "حذف المنتج من المقارنة"
-                        : !localStorage.getItem(`compareProduct${product.id}`)
+                        : !localStorage.getItem(`compareProduct${product._id}`)
                         ? "Add Product To Comparison"
                         : "Remove Product From Comparison"
                     }`}

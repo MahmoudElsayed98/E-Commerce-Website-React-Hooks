@@ -40,7 +40,7 @@ function MainHeader({ removeProductFromCart }) {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand
-          href="/E-Commerce-Website-React-Hooks/"
+          href="/Exclsv/"
           onClick={() => localStorage.clear()}
           className={`${lang === "Eng" ? "me-3" : "ms-3"}`}
         >

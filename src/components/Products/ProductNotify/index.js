@@ -8,17 +8,17 @@ function AddProductNotify({ product, target, alreadyAdded, goal }) {
   return (
     <div
       className="product-added d-flex align-items-center justify-content-center"
-      key={product.id}
+      key={product._id}
     >
       <div className="image rounded border p-2 me-3">
         <img
           src={product.image}
           className="img-fluid"
-          alt={product.title + "Img"}
+          alt={product.name + "Img"}
         />
       </div>
       <div className="info">
-        <h6 className="fw-bold mb-1">{product.title}</h6>
+        <h6 className="fw-bold mb-1">{product.name}</h6>
         <p className="mb-0">
           {lang === "Eng"
             ? `You have ${alreadyAdded ? "already" : "successfully"} ${
@@ -30,8 +30,8 @@ function AddProductNotify({ product, target, alreadyAdded, goal }) {
             ? "تم حذف "
             : ""}
           <br />{" "}
-          <Link to={`/E-Commerce-Website-React-Hooks/products/${product.id}`}>
-            {product.title}
+          <Link to={`/Exclsv/products/${product._id}`}>
+            {product.name}
             <br />
           </Link>{" "}
           {lang === "Eng"
@@ -41,10 +41,7 @@ function AddProductNotify({ product, target, alreadyAdded, goal }) {
             : goal === "remove"
             ? "من "
             : "الى "}
-          <Link
-            to={`/E-Commerce-Website-React-Hooks/${target}`}
-            className="text-capitalize"
-          >
+          <Link to={`/Exclsv/${target}`} className="text-capitalize">
             {target === "cart"
               ? lang === "Eng"
                 ? "shopping cart"
