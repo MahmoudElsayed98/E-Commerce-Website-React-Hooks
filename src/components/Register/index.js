@@ -43,7 +43,7 @@ function Register({ lang }) {
     //   JSON.stringify({ userName, email, passWord })
     // );
     // resetForm();
-    // navigate("/Exclsv/");
+    // navigate("/E-Commerce-Website-React-Hooks/");
     // window.location.reload();
   };
   const resetForm = () => {
@@ -134,7 +134,7 @@ function Register({ lang }) {
             </div>
             <div className="go-to-sign-up text-center mt-3">
               {lang === "Eng" ? "Already a user? " : "مستخدم بالفعل؟ "}
-              <Link to="/Exclsv/sign-in">
+              <Link to="/E-Commerce-Website-React-Hooks/sign-in">
                 {lang === "Eng" ? "LOGIN" : "تسجيل الدخول"}
               </Link>
             </div>

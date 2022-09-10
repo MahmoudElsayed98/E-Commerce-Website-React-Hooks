@@ -44,7 +44,7 @@ function Icons({ removeProductFromCart }) {
         >
           {!token ? (
             <Link
-              to="/Exclsv/sign-in"
+              to="/E-Commerce-Website-React-Hooks/sign-in"
               className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
             >
               <FaUserCircle className="fs-3 mb-1 mb-lg-0" />
@@ -57,7 +57,7 @@ function Icons({ removeProductFromCart }) {
             </Link>
           ) : (
             <Link
-              to="/Exclsv/account"
+              to="/E-Commerce-Website-React-Hooks/account"
               className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
             >
               <FaUserCircle className="fs-3 mb-1 mb-lg-0" />
@@ -77,7 +77,7 @@ function Icons({ removeProductFromCart }) {
         >
           {!token ? (
             <Link
-              to="/Exclsv/register"
+              to="/E-Commerce-Website-React-Hooks/register"
               className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
             >
               <FaUserEdit className="fs-3 mb-1 mb-lg-0" />
@@ -87,7 +87,7 @@ function Icons({ removeProductFromCart }) {
             </Link>
           ) : (
             <a
-              href="/Exclsv/sign-out"
+              href="/E-Commerce-Website-React-Hooks/sign-out"
               className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
               onClick={() => {
                 localStorage.removeItem("userToken");
@@ -113,7 +113,7 @@ function Icons({ removeProductFromCart }) {
           }`}
         >
           <Link
-            to="/Exclsv/wishlist"
+            to="/E-Commerce-Website-React-Hooks/wishlist"
             className="position-relative text-decoration-none d-flex flex-column justify-content-center align-items-center"
           >
             {wishlistProducts.length === 0 ? (
@@ -134,7 +134,7 @@ function Icons({ removeProductFromCart }) {
         </div>
         <div className="sign-in">
           <Link
-            to="/Exclsv/compare"
+            to="/E-Commerce-Website-React-Hooks/compare"
             className="position-relative text-decoration-none d-flex flex-column justify-content-center align-items-center"
           >
             <BiGitCompare className="fs-3 mb-1 mb-lg-0" />
@@ -155,7 +155,7 @@ function Icons({ removeProductFromCart }) {
         role="button"
       >
         <Link
-          to="/Exclsv/cart"
+          to="/E-Commerce-Website-React-Hooks/cart"
           className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
         >
           <span className="cart-detail position-relative d-flex justify-content-center align-items-center">
@@ -202,7 +202,7 @@ function Icons({ removeProductFromCart }) {
                     className="cart-item py-2 d-flex align-items-center"
                   >
                     <Link
-                      to={`/Exclsv/products/${e._id}`}
+                      to={`/E-Commerce-Website-React-Hooks/products/${e._id}`}
                       className="d-flex align-items-center justify-content-center"
                     >
                       <div className="image p-2 rounded">
@@ -210,7 +210,7 @@ function Icons({ removeProductFromCart }) {
                       </div>
                     </Link>
                     <Link
-                      to={`/Exclsv/products/${e._id}`}
+                      to={`/E-Commerce-Website-React-Hooks/products/${e._id}`}
                       className="text-light d-flex align-items-center title"
                     >
                       {e.name}
@@ -243,12 +243,12 @@ function Icons({ removeProductFromCart }) {
                 </p>
               </div>
               <div className="buttons rounded-bottom pb-3">
-                <Link to="/Exclsv/cart">
+                <Link to="/E-Commerce-Website-React-Hooks/cart">
                   <button className="btn btn-light text-uppercase me-2 fw-bold">
                     {lang === "Eng" ? "view cart" : "سلة التسوق"}
                   </button>
                 </Link>
-                <Link to="/Exclsv/checkout">
+                <Link to="/E-Commerce-Website-React-Hooks/checkout">
                   <button className="btn btn-light text-uppercase me-2 fw-bold">
                     {lang === "Eng" ? "Checkout" : "الدفع"}
                   </button>

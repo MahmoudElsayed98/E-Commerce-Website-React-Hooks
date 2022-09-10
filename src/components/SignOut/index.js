@@ -27,7 +27,10 @@ function SignOut() {
           - Your shopping cart has been saved, the items inside it will be
           restored whenever you log back into your account.
         </p>
-        <Link to="/Exclsv/" className="text-decoration-none">
+        <Link
+          to="/E-Commerce-Website-React-Hooks/"
+          className="text-decoration-none"
+        >
           <button className="btn btn-primary btn-main btn-lg text-uppercase d-block w-50 mx-auto">
             continue
           </button>

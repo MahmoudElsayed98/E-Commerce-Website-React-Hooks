@@ -35,7 +35,7 @@ function SignIn({ lang, children, setToken }) {
         console.log(res);
         setToken(res.data.token);
         localStorage.setItem("userToken", res.data.token);
-        navigate("/Exclsv/");
+        navigate("/E-Commerce-Website-React-Hooks/");
       })
       .catch((error) => {
         setError(error.response.data);
@@ -146,7 +146,7 @@ function SignIn({ lang, children, setToken }) {
             </div>
             <div className="go-to-sign-up text-center mt-3">
               {lang === "Eng" ? "Need an account? " : "مستخدم جديد؟ "}
-              <Link to="/Exclsv/register">
+              <Link to="/E-Commerce-Website-React-Hooks/register">
                 {lang === "Eng" ? "SIGN UP" : "تسجيل الاشتراك"}
               </Link>
             </div>

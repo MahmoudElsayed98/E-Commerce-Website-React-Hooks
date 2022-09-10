@@ -27,7 +27,10 @@ function Compare({ removeProductFromComparison, addToCart }) {
                     ? "No Products To Be Compared Currently!"
                     : "لا توجد منتجات للمقارنة حالياً"}
                 </p>
-                <Link to="/Exclsv/products" className="text-decoration-none">
+                <Link
+                  to="/E-Commerce-Website-React-Hooks/products"
+                  className="text-decoration-none"
+                >
                   <button className="btn btn-lg btn-primary btn-main d-block mx-auto mt-2">
                     {lang === "Eng" ? "GO SHOPPING NOW" : "الذهاب للتسوق الآن"}
                   </button>
@@ -39,7 +42,7 @@ function Compare({ removeProductFromComparison, addToCart }) {
               //   className="cart-item border rounded py-2 d-flex align-items-center mb-3"
               // >
               //   <Link
-              //     to={`/Exclsv/products/${e._id}`}
+              //     to={`/E-Commerce-Website-React-Hooks/products/${e._id}`}
               //     className="d-flex align-items-center justify-content-center"
               //   >
               //     <div className="image p-2 rounded">
@@ -47,7 +50,7 @@ function Compare({ removeProductFromComparison, addToCart }) {
               //     </div>
               //   </Link>
               //   <Link
-              //     to={`/Exclsv/products/${e._id}`}
+              //     to={`/E-Commerce-Website-React-Hooks/products/${e._id}`}
               //     className="d-flex align-items-center justify-content-center title text-dark text-center"
               //   >
               //     {e.name}
@@ -84,7 +87,9 @@ function Compare({ removeProductFromComparison, addToCart }) {
                         </td>
                         {compareProducts.map((p) => (
                           <td key={p._id} className="text-center">
-                            <Link to={`/Exclsv/products/${p._id}`}>
+                            <Link
+                              to={`/E-Commerce-Website-React-Hooks/products/${p._id}`}
+                            >
                               <strong>{p.name}</strong>
                             </Link>
                           </td>

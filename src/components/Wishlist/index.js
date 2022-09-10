@@ -21,8 +21,10 @@ function Wishlist({ removeProductFromWishlist }) {
         <SignIn lang={lang}>
           <p className="mb-0 lead w-100 pt-4 fw-bold">
             - You must login or{" "}
-            <Link to="/Exclsv/register">create an account</Link> to show your
-            wishlist products.
+            <Link to="/E-Commerce-Website-React-Hooks/register">
+              create an account
+            </Link>{" "}
+            to show your wishlist products.
           </p>
         </SignIn>
       ) : (
@@ -46,7 +48,7 @@ function Wishlist({ removeProductFromWishlist }) {
                         : "قائمة رغباتك فارغة حالياً!"}
                     </p>
                     <Link
-                      to="/Exclsv/products"
+                      to="/E-Commerce-Website-React-Hooks/products"
                       className="text-decoration-none"
                     >
                       <button className="btn btn-lg btn-primary btn-main d-block mx-auto mt-2">
@@ -63,7 +65,7 @@ function Wishlist({ removeProductFromWishlist }) {
                       className="cart-item border rounded py-2 d-flex align-items-center mb-3"
                     >
                       <Link
-                        to={`/Exclsv/products/${e._id}`}
+                        to={`/E-Commerce-Website-React-Hooks/products/${e._id}`}
                         className="d-flex align-items-center justify-content-center"
                       >
                         <div className="image p-2 rounded">
@@ -75,7 +77,7 @@ function Wishlist({ removeProductFromWishlist }) {
                         </div>
                       </Link>
                       <Link
-                        to={`/Exclsv/products/${e._id}`}
+                        to={`/E-Commerce-Website-React-Hooks/products/${e._id}`}
                         className="d-flex align-items-center justify-content-center title text-dark text-center"
                       >
                         {e.name}

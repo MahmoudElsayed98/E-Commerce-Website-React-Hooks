@@ -30,7 +30,7 @@ function AddProductNotify({ product, target, alreadyAdded, goal }) {
             ? "تم حذف "
             : ""}
           <br />{" "}
-          <Link to={`/Exclsv/products/${product._id}`}>
+          <Link to={`/E-Commerce-Website-React-Hooks/products/${product._id}`}>
             {product.name}
             <br />
           </Link>{" "}
@@ -41,7 +41,10 @@ function AddProductNotify({ product, target, alreadyAdded, goal }) {
             : goal === "remove"
             ? "من "
             : "الى "}
-          <Link to={`/Exclsv/${target}`} className="text-capitalize">
+          <Link
+            to={`/E-Commerce-Website-React-Hooks/${target}`}
+            className="text-capitalize"
+          >
             {target === "cart"
               ? lang === "Eng"
                 ? "shopping cart"

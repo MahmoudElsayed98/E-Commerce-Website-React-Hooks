@@ -72,7 +72,7 @@ function ProductCard({ product, addToCart, addToWishlist, addToComparison }) {
       )}
       <div className="image rounded-top">
         <Link
-          to={`/Exclsv/products/${product._id}`}
+          to={`/E-Commerce-Website-React-Hooks/products/${product._id}`}
           className="h-100 d-flex justify-content-center align-items-center"
         >
           <img
@@ -85,7 +85,7 @@ function ProductCard({ product, addToCart, addToWishlist, addToComparison }) {
       <div className="text p-2 text-center bg-light">
         <h6>
           <Link
-            to={`/Exclsv/products/${product._id}`}
+            to={`/E-Commerce-Website-React-Hooks/products/${product._id}`}
             className="d-flex justify-content-center align-items-center text-decoration-none fw-bold"
           >
             {product.name}

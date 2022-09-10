@@ -394,11 +394,11 @@ function App() {
                               />
                               <Routes>
                                 <Route
-                                  path="/Exclsv/"
+                                  path="/E-Commerce-Website-React-Hooks/"
                                   element={<Home lang={lang} />}
                                 />
                                 <Route
-                                  path="/Exclsv/cart"
+                                  path="/E-Commerce-Website-React-Hooks/cart"
                                   element={
                                     <Cart
                                       removeProductFromCart={
@@ -409,7 +409,7 @@ function App() {
                                   }
                                 />
                                 <Route
-                                  path="/Exclsv/account/cart"
+                                  path="/E-Commerce-Website-React-Hooks/account/cart"
                                   element={
                                     <Cart
                                       removeProductFromCart={
@@ -420,7 +420,7 @@ function App() {
                                   }
                                 />
                                 <Route
-                                  path="/Exclsv/products"
+                                  path="/E-Commerce-Website-React-Hooks/products"
                                   element={<ProductsHeader />}
                                 >
                                   <Route
@@ -644,15 +644,15 @@ function App() {
                                   />
                                 </Route>
                                 <Route
-                                  path="/Exclsv/about"
+                                  path="/E-Commerce-Website-React-Hooks/about"
                                   element={<About lang={lang} />}
                                 />
                                 <Route
-                                  path="/Exclsv/contact"
+                                  path="/E-Commerce-Website-React-Hooks/contact"
                                   element={<Contact lang={lang} />}
                                 />
                                 <Route
-                                  path="/Exclsv/sign-in"
+                                  path="/E-Commerce-Website-React-Hooks/sign-in"
                                   element={
                                     <SignIn
                                       lang={lang}
@@ -662,17 +662,17 @@ function App() {
                                   }
                                 />
                                 <Route
-                                  path="/Exclsv/sign-out"
+                                  path="/E-Commerce-Website-React-Hooks/sign-out"
                                   element={<SignOut lang={lang} />}
                                 />
                                 <Route
-                                  path="/Exclsv/register"
+                                  path="/E-Commerce-Website-React-Hooks/register"
                                   element={
                                     <Register lang={lang} users={users} />
                                   }
                                 />
                                 <Route
-                                  path="/Exclsv/wishlist"
+                                  path="/E-Commerce-Website-React-Hooks/wishlist"
                                   element={
                                     <Wishlist
                                       removeProductFromWishlist={
@@ -682,7 +682,7 @@ function App() {
                                   }
                                 />
                                 <Route
-                                  path="/Exclsv/account/wishlist"
+                                  path="/E-Commerce-Website-React-Hooks/account/wishlist"
                                   element={
                                     <Wishlist
                                       removeProductFromWishlist={
@@ -692,7 +692,7 @@ function App() {
                                   }
                                 />
                                 <Route
-                                  path="/Exclsv/compare"
+                                  path="/E-Commerce-Website-React-Hooks/compare"
                                   element={
                                     <Compare
                                       removeProductFromComparison={
@@ -703,7 +703,7 @@ function App() {
                                   }
                                 />
                                 <Route
-                                  path="/Exclsv/account/compare"
+                                  path="/E-Commerce-Website-React-Hooks/account/compare"
                                   element={
                                     <Compare
                                       removeProductFromComparison={
@@ -714,15 +714,15 @@ function App() {
                                   }
                                 />
                                 <Route
-                                  path="/Exclsv/account/password"
+                                  path="/E-Commerce-Website-React-Hooks/account/password"
                                   element={<Password lang={lang} />}
                                 />
                                 <Route
-                                  path="/Exclsv/account/"
+                                  path="/E-Commerce-Website-React-Hooks/account/"
                                   element={<Account />}
                                 />
                                 <Route
-                                  path="/Exclsv/checkout"
+                                  path="/E-Commerce-Website-React-Hooks/checkout"
                                   element={
                                     <Checkout
                                       cartProductsTotalSalary={
@@ -738,7 +738,7 @@ function App() {
                                   path="*"
                                   element={
                                     // <Navigate
-                                    //   to="/Exclsv/"
+                                    //   to="/E-Commerce-Website-React-Hooks/"
                                     // />
                                     <NotFound />
                                   }
