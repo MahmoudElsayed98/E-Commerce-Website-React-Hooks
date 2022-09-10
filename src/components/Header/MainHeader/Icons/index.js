@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import {useNavigate} from "react-router-dom";
 import { FaUserCircle, FaUserEdit, FaTrashAlt } from "react-icons/fa";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { BiGitCompare } from "react-icons/bi";
@@ -32,6 +33,7 @@ function Icons({ removeProductFromCart }) {
   const compareProducts = useContext(CompareProductsContext);
   const lang = useContext(LanguageContext);
   const cartProductsTotalNumber = useContext(CartProductsTotalNumberContext);
+  const navigate = useNavigate();
   return (
     <>
       <div className="icons d-flex flex-column flex-lg-row align-items-center justify-content-center">
@@ -84,10 +86,10 @@ function Icons({ removeProductFromCart }) {
               </p>
             </Link>
           ) : (
-            <a
-              href="/E-Commerce-Website-React-Hooks/sign-out"
-              className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
+            <button
+              className="d-flex flex-column justify-content-center align-items-center"
               onClick={() => {
+                navigate("/E-Commerce-Website-React-Hooks/sign-out");
                 localStorage.removeItem("currentUser");
               }}
             >
@@ -102,7 +104,7 @@ function Icons({ removeProductFromCart }) {
               <p className="fw-bold d-none d-lg-block">
                 {lang === "Eng" ? "Sign Out" : "الخروج"}
               </p>
-            </a>
+            </button>
           )}
         </div>
         <div
