@@ -17,7 +17,7 @@ function Wishlist({ removeProductFromWishlist }) {
   });
   return (
     <>
-      {!localStorage.getItem("currentUser") ? (
+      {!localStorage.getItem("loggedUser") ? (
         <SignIn lang={lang}>
           <p className="mb-0 lead w-100 pt-4 fw-bold">
             - You must login or{" "}

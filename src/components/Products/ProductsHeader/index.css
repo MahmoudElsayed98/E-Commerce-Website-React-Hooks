@@ -1,5 +1,8 @@
 .categories-links {
   background-color: var(--secondaryColor);
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 .categories-links nav a {
   transition: var(--mainDuration);

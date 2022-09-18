@@ -15,13 +15,11 @@ import {
   LanguageContext,
   CompareProductsContext,
   CartProductsTotalNumberContext,
-  UserTokenContext,
   // IsCompareProductsChangedContext,
 } from "../../../../App";
 import { Link } from "react-router-dom";
 
 function Icons({ removeProductFromCart }) {
-  const token = useContext(UserTokenContext);
   const cartProducts = useContext(CartProductsContext);
   const cartProductsTotalSalary = useContext(CartProductsTotalSalaryContext);
   // const isCartProductsChanged = useContext(IsCartProductsChangedContext);
@@ -42,7 +40,7 @@ function Icons({ removeProductFromCart }) {
             lang === "Eng" ? "me-lg-2 me-xl-3" : "ms-lg-2 ms-xl-3"
           }`}
         >
-          {!token ? (
+          {!localStorage.getItem("loggedUser") ? (
             <Link
               to="/E-Commerce-Website-React-Hooks/sign-in"
               className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
@@ -75,7 +73,7 @@ function Icons({ removeProductFromCart }) {
             lang === "Eng" ? "me-lg-2 me-xl-3" : "ms-lg-2 ms-xl-3"
           }`}
         >
-          {!token ? (
+          {!localStorage.getItem("loggedUser") ? (
             <Link
               to="/E-Commerce-Website-React-Hooks/register"
               className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
@@ -90,7 +88,7 @@ function Icons({ removeProductFromCart }) {
               href="/E-Commerce-Website-React-Hooks/sign-out"
               className="text-decoration-none d-flex flex-column justify-content-center align-items-center"
               onClick={() => {
-                localStorage.removeItem("userToken");
+                localStorage.removeItem("loggedUser");
               }}
             >
               {lang === "Eng" ? (

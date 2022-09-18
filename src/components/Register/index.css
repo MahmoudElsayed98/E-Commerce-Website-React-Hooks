@@ -92,3 +92,14 @@
 .register form .socials {
   margin-top: 35px;
 }
+form .info-error {
+  right: 12px;
+  transform: translateY(-50%);
+}
+form .pass-group {
+  width: calc(100% - 42px);
+}
+form .input-password {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
