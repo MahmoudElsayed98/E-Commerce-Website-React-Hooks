@@ -251,19 +251,16 @@ function Register({ lang, users, setUsers }) {
                     />
                   )}
                 </div>
-                <InputGroup.Text id="inputGroupPrepend">
                   {passWordVisability ? (
+                <InputGroup.Text id="inputGroupPrepend" role="button" onClick={() => setPassWordVisability(false)}>
                     <FaEyeSlash
-                      onClick={() => setPassWordVisability(false)}
-                      role="button"
                     />
-                  ) : (
-                    <FaEye
-                      onClick={() => setPassWordVisability(true)}
-                      role="button"
-                    />
-                  )}
                 </InputGroup.Text>
+                  ) : (
+                <InputGroup.Text id="inputGroupPrepend" role="button" onClick={() => setPassWordVisability(true)}>
+                    <FaEye/>
+                </InputGroup.Text>
+                  )}
               </InputGroup>
               {passWordError && (
                 <Form.Text className="text-danger">

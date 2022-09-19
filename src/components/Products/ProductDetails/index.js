@@ -60,23 +60,23 @@ function ProductDetails({
             </h3>
           ) : (
             <>
-              <p className="position-absolute cat text-uppercase rounded text-light p-2">
-                {product.category}
-              </p>
-              <div className="left-side col-6 col-md-5 col-lg-4 me-lg-4">
+              <div className="left-side col-6 col-md-5 me-lg-4">
                 <div className="image text-center">
                   <img src={product.image} alt={product.name} />
                 </div>
               </div>
-              <div className="right-side col-12 col-md-9 col-lg-7 text-center text-md-start ">
-                <h3 className="mb-2 mt-4 mt-lg-0 fw-bold d-flex justify-content-center justify-content-lg-start align-items-center text-center text-lg-start">
+              <div className="right-side">
+                <p className="cat text-uppercase rounded mx-auto text-light p-2">
+                  {product.category}
+                </p>
+                <h3 className="mb-2 mt-4 mt-lg-0 fw-bold d-flex justify-content-center align-items-center text-center text-lg-start">
                   {product.name}
                 </h3>
-                <h4 className="mb-0 d-flex justify-content-center justify-content-lg-start align-items-center">
+                <h4 className="mb-0 d-flex justify-content-center align-items-center">
                   {"$"}
                   {product.price}
                 </h4>
-                <div className="add-to-cart d-flex justify-content-center justify-content-lg-start align-items-center my-2">
+                <div className="add-to-cart d-flex justify-content-center align-items-center my-2">
                   <div
                     className={`product-quantity d-flex ${
                       lang === "Eng" ? "me-2" : "ms-2"
@@ -151,7 +151,7 @@ function ProductDetails({
                   />
                 </div>
                 <div className="desc mb-0">
-                  <h5 className="mb-0 fw-bold d-flex justify-content-center justify-content-lg-start align-items-center mb-1">
+                  <h5 className="mb-0 fw-bold d-flex justify-content-center align-items-center mb-1">
                     <GoPrimitiveDot className="fs-6 me-1" />{" "}
                     {lang === "Eng" ? "Product Details" : "تفاصيل المنتج"}{" "}
                     <GoPrimitiveDot className="fs-6 ms-1" />

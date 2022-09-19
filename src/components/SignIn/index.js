@@ -160,19 +160,15 @@ function SignIn({ lang, children, users }) {
                     />
                   )}
                 </div>
-                <InputGroup.Text id="inputGroupPrepend">
-                  {passWordVisability ? (
-                    <FaEyeSlash
-                      onClick={() => setPassWordVisability(false)}
-                      role="button"
-                    />
-                  ) : (
-                    <FaEye
-                      onClick={() => setPassWordVisability(true)}
-                      role="button"
-                    />
-                  )}
-                </InputGroup.Text>
+                {passWordVisability ? (
+                  <InputGroup.Text id="inputGroupPrepend" role="button" onClick={() => setPassWordVisability(false)}>
+                    <FaEyeSlash />
+                  </InputGroup.Text>
+                ) : (
+                  <InputGroup.Text id="inputGroupPrepend" role="button" onClick={() => setPassWordVisability(true)}>
+                    <FaEye />
+                  </InputGroup.Text>
+                )}
               </InputGroup>
               {passWordEmpty && (
                 <Form.Text className="text-danger">
