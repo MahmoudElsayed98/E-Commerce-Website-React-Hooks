@@ -12,7 +12,6 @@ function ProductsHeader() {
           <NavLink to="" className="text-light text-decoration-none" end>
             {lang === "Eng" ? "All Products" : "كل المنتجات"}
           </NavLink>
-
           <NavLink to="Fashion" className="text-light text-decoration-none">
             {lang === "Eng" ? "Fashion" : "الموضة"}
           </NavLink>

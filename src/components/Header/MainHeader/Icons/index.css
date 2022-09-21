@@ -1,4 +1,5 @@
-.sign-in a {
+.sign-in a,
+.sign-in > button {
   height: 60px;
   text-align: center;
   cursor: pointer;
@@ -111,14 +112,14 @@
   font-size: 15px;
 }
 .sign-in svg,
-.sign-in a > p,
+.sign-in p,
 .icons + .cart svg {
   color: var(--mainColor);
   transition: var(--mainDuration);
 }
 .sign-in:hover,
 .sign-in:hover svg,
-.sign-in:hover a > p,
+.sign-in:hover p,
 .icons + .cart svg:hover,
 .icons + .cart:hover {
   color: var(--secondaryColor);

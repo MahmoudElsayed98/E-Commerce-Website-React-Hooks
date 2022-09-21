@@ -21,7 +21,7 @@ function SignIn({ lang, children, users }) {
   const [userNotFound, setUserNotFound] = useState(false);
   const [passWordVisability, setPassWordVisability] = useState(false);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,25 +38,6 @@ function SignIn({ lang, children, users }) {
         setUserNotFound(true);
       }
     }
-    // axios
-    //   .post(
-    //     "https://fake-e-commerce-api.onrender.com/login",
-    //     {
-    //       email: email,
-    //       password: passWord,
-    //     },
-    //     {
-    //       withCredentials: true,
-    //     }
-    //   )
-    //   .then((res) => {
-    //     console.log(res);
-    //     navigate("/E-Commerce-Website-React-Hooks/");
-    //     return res.data;
-    //   })
-    //   .catch((error) => {
-    //     setError(error.response.data);
-    //   });
   };
 
   const resetForm = () => {
@@ -161,11 +142,19 @@ function SignIn({ lang, children, users }) {
                   )}
                 </div>
                 {passWordVisability ? (
-                  <InputGroup.Text id="inputGroupPrepend" role="button" onClick={() => setPassWordVisability(false)}>
+                  <InputGroup.Text
+                    id="inputGroupPrepend"
+                    role="button"
+                    onClick={() => setPassWordVisability(false)}
+                  >
                     <FaEyeSlash />
                   </InputGroup.Text>
                 ) : (
-                  <InputGroup.Text id="inputGroupPrepend" role="button" onClick={() => setPassWordVisability(true)}>
+                  <InputGroup.Text
+                    id="inputGroupPrepend"
+                    role="button"
+                    onClick={() => setPassWordVisability(true)}
+                  >
                     <FaEye />
                   </InputGroup.Text>
                 )}

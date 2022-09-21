@@ -705,7 +705,9 @@ function App() {
                               />
                               <Route
                                 path="/E-Commerce-Website-React-Hooks/account/password"
-                                element={<Password lang={lang} />}
+                                element={
+                                  <Password lang={lang} users={users} setUsers={setUsers} />
+                                }
                               />
                               <Route
                                 path="/E-Commerce-Website-React-Hooks/account/"

@@ -1,16 +1,18 @@
-.login .login-form {
+.login-form {
   color: var(--mainColor);
   width: 45%;
+}
+.login .login-form {
   border: var(--mainBorder);
 }
 .login form .input,
-.login .login-form {
+.login-form {
   transition: var(--mainDuration);
 }
-.login .login-form:hover {
+.login-form:hover {
   border-color: var(--mainColor);
 }
-.login .login-form form {
+.login-form form {
   width: 85%;
 }
 .login form input:focus {
@@ -45,7 +47,7 @@
   font-size: 50px;
 }
 @media (max-width: 1199px) {
-  .login .login-form {
+  .login-form {
     width: 52.5%;
   }
   .login .container h1 {
@@ -62,7 +64,7 @@
         )
     );
   }
-  .login .login-form {
+  .login-form {
     width: 70%;
   }
   .login .container h1 {
@@ -70,7 +72,7 @@
   }
 }
 @media (max-width: 767px) {
-  .login .login-form {
+  .login-form {
     width: 100%;
   }
   .login form label {

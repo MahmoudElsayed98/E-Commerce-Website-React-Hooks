@@ -87,7 +87,7 @@ function Icons({ removeProductFromCart }) {
             </Link>
           ) : (
             <button
-              className="d-flex flex-column justify-content-center align-items-center"
+              className="btn btn-remove border-0 p-0 d-flex flex-column justify-content-center align-items-center"
               onClick={() => {
                 localStorage.removeItem("loggedUser");
                 navigate("/E-Commerce-Website-React-Hooks/sign-out");

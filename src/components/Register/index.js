@@ -8,7 +8,6 @@ import { IoLogoFacebook } from "react-icons/io5";
 import { AiFillGoogleCircle, AiFillTwitterCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./index.css";
-import axios from "axios";
 
 function Register({ lang, users, setUsers }) {
   const [userName, setUserName] = useState("");
@@ -96,7 +95,7 @@ function Register({ lang, users, setUsers }) {
             {" "}
             {lang === "Eng" ? "Sign Up" : "مستخدم جديد"}
           </h1>
-          <Form id="register-form" onSubmit={handleSubmit} method="POST">
+          <Form id="register-form" onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formRegisterUsername">
               <Form.Label>
                 {" "}
@@ -251,16 +250,23 @@ function Register({ lang, users, setUsers }) {
                     />
                   )}
                 </div>
-                  {passWordVisability ? (
-                <InputGroup.Text id="inputGroupPrepend" role="button" onClick={() => setPassWordVisability(false)}>
-                    <FaEyeSlash
-                    />
-                </InputGroup.Text>
-                  ) : (
-                <InputGroup.Text id="inputGroupPrepend" role="button" onClick={() => setPassWordVisability(true)}>
-                    <FaEye/>
-                </InputGroup.Text>
-                  )}
+                {passWordVisability ? (
+                  <InputGroup.Text
+                    id="inputGroupPrepend"
+                    role="button"
+                    onClick={() => setPassWordVisability(false)}
+                  >
+                    <FaEyeSlash />
+                  </InputGroup.Text>
+                ) : (
+                  <InputGroup.Text
+                    id="inputGroupPrepend"
+                    role="button"
+                    onClick={() => setPassWordVisability(true)}
+                  >
+                    <FaEye />
+                  </InputGroup.Text>
+                )}
               </InputGroup>
               {passWordError && (
                 <Form.Text className="text-danger">
